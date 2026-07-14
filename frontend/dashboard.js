@@ -14,7 +14,7 @@ async function loadProfile() {
 
         const response = await fetch(
 
-            "http://localhost:8080/api/auth/profile",
+            "https://railnova.onrender.com/api/auth/profile",
 
             {
 
@@ -69,7 +69,7 @@ async function loadBookings() {
     try {
 
         const response = await fetch(
-            "http://localhost:8080/api/bookings/my",
+            "https://railnova.onrender.com/api/bookings/my",
             {
                 headers: {
                     Authorization: `Bearer ${token}`

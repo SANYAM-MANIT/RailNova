@@ -22,7 +22,7 @@ async function loadDashboard(){
 
         const response=await fetch(
 
-            "http://localhost:8080/api/admin/dashboard",
+            "https://railnova.onrender.com/api/admin/dashboard",
 
             {
 
@@ -58,7 +58,7 @@ async function loadDashboard(){
 
         const analyticsResponse = await fetch(
 
-            "http://localhost:8080/api/admin/analytics",
+            "https://railnova.onrender.com/api/admin/analytics",
         
             {
         
