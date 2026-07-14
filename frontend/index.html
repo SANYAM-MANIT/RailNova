@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RailNova</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+
+        <nav class="navbar">
+    
+            <div class="logo">
+                🚆 RailNova
+            </div>
+    
+            <!-- Mobile Menu Button -->
+            <div class="menu-toggle" id="menuToggle">
+                ☰
+            </div>
+    
+            <ul class="nav-links">
+    
+                <li>
+                    <a href="#" class="protected-link">Home</a>
+                </li>
+    
+                <li>
+                    <a href="#" class="protected-link">Train Search</a>
+                </li>
+    
+                <li>
+                    <a href="#" class="protected-link">PNR Status</a>
+                </li>
+    
+                <li>
+                    <a href="#" class="protected-link">Live Status</a>
+                </li>
+    
+                <li>
+                    <a href="#" class="protected-link">Contact</a>
+                </li>
+    
+            </ul>
+    
+            <div class="nav-btns">
+    
+                <a href="login.html">
+                    <button class="login-btn">
+                        Login
+                    </button>
+                </a>
+    
+                <a href="signup.html">
+                    <button class="signup-btn">
+                        Sign Up
+                    </button>
+                </a>
+    
+            </div>
+    
+        </nav>
+    
+    </header>
+    <main>
+
+        <section class="hero">
+        
+            <div class="hero-left">
+        
+                <span class="hero-tag">
+
+                    ⭐ Trusted by 10 Million+ Indian Travellers
+                
+                </span>
+        
+                <h1>
+
+                    Travel Across India
+                
+                    <span>Smarter, Faster & Stress-Free.</span>
+                
+                </h1>
+        
+                <p>
+
+                    Book train tickets, check live train status, track your PNR,
+                    manage bookings and travel confidently with India's modern railway platform.
+                    
+                    </p>
+
+                    <div class="hero-features">
+
+                        <span>✅ Instant Booking</span>
+                    
+                        <span>📍 Live Tracking</span>
+                    
+                        <span>🎫 PNR Status</span>
+                    
+                        <span>🔒 Secure Payments</span>
+                    
+                    </div>
+        
+                <div class="hero-buttons">
+        
+                    <button class="primary-btn protected-btn">
+                        Book Tickets
+                    </button>
+        
+                    <button class="secondary-btn protected-btn">
+                        Live Status
+                    </button>
+        
+                </div>
+        
+                <div class="hero-stats">
+        
+                    <div>
+                        <h2>10M+</h2>
+                        <span>Users</span>
+                    </div>
+        
+                    <div>
+                        <h2>25K+</h2>
+                        <span>Daily Bookings</span>
+                    </div>
+        
+                    <div>
+                        <h2>99.9%</h2>
+                        <span>Uptime</span>
+                    </div>
+        
+                </div>
+        
+            </div>
+        
+            <div class="hero-right">
+        
+                <img src="images/train.png" alt="Train">
+        
+            </div>
+        
+        </section>
+        
+        </main>
+
+        <section class="search-wrapper">
+
+            <div class="search-card">
+        
+                <div class="field">
+        
+                    <label>📍 From</label>
+        
+                    <input
+                        type="text"
+                        placeholder="New Delhi"
+                        readonly
+                    >
+        
+                </div>
+        
+                <button class="swap-btn protected-btn">
+                    ⇄
+                </button>
+        
+                <div class="field">
+        
+                    <label>📍 To</label>
+        
+                    <input
+                        type="text"
+                        placeholder="Mumbai"
+                        readonly
+                    >
+        
+                </div>
+        
+                <div class="field">
+        
+                    <label>📅 Journey Date</label>
+        
+                    <input
+                        type="date"
+                        readonly
+                    >
+        
+                </div>
+        
+                <div class="field">
+        
+                    <label>💺 Class</label>
+        
+                    <select disabled>
+        
+                        <option>All Classes</option>
+        
+                        <option>Sleeper</option>
+        
+                        <option>3A</option>
+        
+                        <option>2A</option>
+        
+                        <option>1A</option>
+        
+                    </select>
+        
+                </div>
+        
+                <button class="search-btn protected-btn">
+        
+                    🔍 Search Trains
+        
+                </button>
+        
+            </div>
+        
+        </section>
+
+        <section class="routes">
+
+            <div class="section-heading">
+        
+                <h2>Popular Routes</h2>
+        
+                <p>Most booked train routes this week</p>
+        
+            </div>
+        
+            <div class="route-grid">
+        
+                <div class="route-card">
+        
+                    <h3>Delhi → Mumbai</h3>
+        
+                    <p>Rajdhani Express</p>
+        
+                    <button class="protected-btn">
+                        View Trains
+                    </button>
+        
+                </div>
+        
+                <div class="route-card">
+        
+                    <h3>Bhopal → Indore</h3>
+        
+                    <p>Intercity Express</p>
+        
+                    <button class="protected-btn">
+                        View Trains
+                    </button>
+        
+                </div>
+        
+                <div class="route-card">
+        
+                    <h3>Bengaluru → Chennai</h3>
+        
+                    <p>Shatabdi Express</p>
+        
+                    <button class="protected-btn">
+                        View Trains
+                    </button>
+        
+                </div>
+        
+                <div class="route-card">
+        
+                    <h3>Kolkata → Patna</h3>
+        
+                    <p>Vande Bharat</p>
+        
+                    <button class="protected-btn">
+                        View Trains
+                    </button>
+        
+                </div>
+        
+            </div>
+        
+        </section>
+        <section class="features">
+
+            <div class="section-heading">
+        
+                <h2>Why Choose RailNova?</h2>
+        
+                <p>Everything you need for a seamless railway journey.</p>
+        
+            </div>
+        
+            <div class="feature-grid">
+        
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Booking</h3>
+                    <p>Book tickets in just a few clicks with a fast and reliable experience.</p>
+                </div>
+        
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Live Train Tracking</h3>
+                    <p>Track your train in real time with accurate arrival and departure updates.</p>
+                </div>
+        
+                <div class="feature-card">
+                    <div class="feature-icon">💺</div>
+                    <h3>Seat Availability</h3>
+                    <p>Check seat availability across all classes before booking.</p>
+                </div>
+        
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Payments</h3>
+                    <p>Multiple payment options with enterprise-grade security.</p>
+                </div>
+        
+            </div>
+        
+        </section>
+        <section class="trusted">
+
+            <p>Trusted by <span>10 Million+</span> Travelers Across India</p>
+        
+            <div class="trusted-box">
+        
+                <div>
+                    <h2>10M+</h2>
+                    <span>Users</span>
+                </div>
+        
+                <div>
+                    <h2>250K+</h2>
+                    <span>Bookings</span>
+                </div>
+        
+                <div>
+                    <h2>500+</h2>
+                    <span>Stations</span>
+                </div>
+        
+                <div>
+                    <h2>99.9%</h2>
+                    <span>Uptime</span>
+                </div>
+        
+            </div>
+        
+        </section>
+
+        <section class="app-section">
+
+            <div class="app-left">
+        
+                <span class="coming-tag">
+                    🚀 Coming Soon
+                </span>
+        
+                <h2>
+        
+                    RailNova Mobile App
+        
+                </h2>
+        
+                <p>
+        
+                    Soon you'll be able to book tickets, track live trains,
+                    check PNR status and manage your journeys directly from
+                    your Android and iPhone.
+        
+                </p>
+        
+                <div class="app-features">
+        
+                    <span>🎫 Instant Booking</span>
+        
+                    <span>📍 Live Tracking</span>
+        
+                    <span>🔔 Journey Alerts</span>
+        
+                    <span>💳 Secure Payments</span>
+        
+                </div>
+        
+                <button class="primary-btn protected-btn">
+        
+                    Join the Waitlist
+        
+                </button>
+        
+            </div>
+        
+            <div class="app-right">
+        
+                <img src="images/mobile.png" alt="RailNova Mobile App">
+        
+            </div>
+        
+        </section>
+
+        <footer>
+
+            <h2>🚆 RailNova</h2>
+        
+            <p>Making railway travel smarter, faster and hassle-free.</p>
+
+            <p class="creator">
+                Designed & Developed by <strong>Sanyam Jain</strong> | MANIT Bhopal
+            </p>
+        
+            <span>© 2026 RailNova. All Rights Reserved.</span>
+        
+        </footer>
+
+        <!-- Login Required Modal -->
+
+<div id="loginModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="lock-icon">🔒</div>
+
+        <h2>Login Required</h2>
+
+        <p>
+
+            Unlock the complete RailNova experience.
+            
+            Search trains, check live train status, track your PNR,
+            book tickets and manage all your journeys with one free account.
+            
+            </p>
+
+        <div class="modal-buttons">
+
+            <button id="loginBtn">
+
+                Login
+
+            </button>
+
+            <button id="signupBtn">
+
+                Sign Up
+
+            </button>
+
+            <button id="closeModal">
+
+                Maybe Later
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+    <script src="script.js"></script>
+</body>
+</html>

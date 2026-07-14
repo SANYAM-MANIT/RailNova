@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RailNova Payment</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="payment.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="payment-card">
+
+        <h1>💳 RailNova Payment</h1>
+
+        <p class="subtitle">
+
+            Complete your payment to confirm booking
+
+        </p>
+
+        <div class="summary">
+
+            <h2 id="trainName">Train Name</h2>
+        
+            <p>
+                <strong>Train No:</strong>
+                <span id="trainNumber"></span>
+            </p>
+        
+            <p>
+                <strong>Route:</strong>
+                <span id="route"></span>
+            </p>
+        
+            <hr>
+        
+            <p>
+                <strong>Original Fare:</strong>
+                <span id="originalFare">₹0</span>
+            </p>
+        
+            <p>
+                <strong>Concession:</strong>
+                <span id="concessionType">None</span>
+            </p>
+        
+            <p>
+                <strong>Discount:</strong>
+                <span id="discount">₹0</span>
+            </p>
+        
+            <hr>
+        
+            <p class="amount">
+        
+                Amount Payable
+        
+                <span id="amount">₹0</span>
+        
+            </p>
+        
+        </div>
+
+        <h3>Select Payment Method</h3>
+
+        <div class="methods">
+
+            <label>
+
+                <input type="radio" name="payment" value="UPI" checked>
+
+                UPI
+
+            </label>
+
+            <label>
+
+                <input type="radio" name="payment" value="Debit Card">
+
+                Debit Card
+
+            </label>
+
+            <label>
+
+                <input type="radio" name="payment" value="Credit Card">
+
+                Credit Card
+
+            </label>
+
+            <label>
+
+                <input type="radio" name="payment" value="Net Banking">
+
+                Net Banking
+
+            </label>
+
+            <label>
+
+                <input type="radio" name="payment" value="Wallet">
+
+                Wallet
+
+            </label>
+
+        </div>
+
+        <button id="payBtn">
+
+            Pay Now
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="payment.js"></script>
+
+</body>
+
+</html>

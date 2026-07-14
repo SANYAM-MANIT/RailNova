@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RailNova Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        <link rel="stylesheet" href="toast.css">
+    <link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body>
+
+    <div class="mobile-header">
+
+        <button id="menuBtn">
+    
+            <i class="fa-solid fa-bars"></i>
+    
+        </button>
+    
+        <h2>🚆 RailNova</h2>
+    
+    </div>
+
+<div class="dashboard">
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-train"></i>
+
+            <h2>RailNova</h2>
+
+        </div>
+
+        <nav>
+
+            <a href="dashboard.html" class="active">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="train-search.html">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Search Trains
+
+            </a>
+
+            <a href="my-bookings.html">
+
+                <i class="fa-solid fa-ticket"></i>
+
+                My Bookings
+
+            </a>
+
+            <a href="live-status.html">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                Live Status
+
+            </a>
+
+            <a href="pnr-status.html">
+
+                <i class="fa-solid fa-id-card"></i>
+
+                PNR Status
+
+            </a>
+
+            <a href="profile.html">
+
+                <i class="fa-solid fa-user"></i>
+
+                Profile
+
+            </a>
+
+            <a href="settings.html">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Settings
+
+            </a>
+
+            <a href="#" id="logoutBtn">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <div class="sidebar-overlay" id="overlay"></div>
+
+    <main class="content">
+
+        <header>
+
+            <div>
+
+                <h1>
+
+                    Good Evening,
+
+                    <span id="username">Traveller</span>
+
+                    👋
+
+                </h1>
+
+                <p>Welcome back to RailNova.</p>
+
+            </div>
+
+            <div class="top-right">
+
+                <div class="notification" id="notificationBtn">
+
+                    <i class="fa-solid fa-bell"></i>
+                
+                    <span class="notification-dot" id="notificationDot"></span>
+                
+                    <div class="notification-menu" id="notificationMenu">
+                
+                        <h4>Notifications</h4>
+                
+                        <div id="notificationList"></div>
+                
+                    </div>
+                
+                </div>
+            
+                <div
+                    class="profile-circle"
+                    id="profileAvatar"
+                    onclick="window.location.href='profile.html'"
+                    title="My Profile">
+            
+                </div>
+            
+            </div>
+
+        </header>
+
+        <h2 class="section-title">
+
+            Quick Actions
+
+        </h2>
+
+        <div class="cards">
+
+            <div class="card" onclick="window.location.href='train-search.html'">
+
+                <i class="fa-solid fa-train"></i>
+
+                <h3>Search Trains</h3>
+
+                <p>Find trains between stations</p>
+
+            </div>
+
+            <div class="card" onclick="window.location.href='my-bookings.html'">
+
+                <i class="fa-solid fa-ticket"></i>
+
+                <h3>My Bookings</h3>
+
+                <p>View all booked tickets</p>
+
+            </div>
+
+            <div class="card" onclick="window.location.href='live-status.html'">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <h3>Live Status</h3>
+
+                <p>Track trains in real time</p>
+
+            </div>
+
+            <div class="card" onclick="window.location.href='pnr-status.html'">
+
+                <i class="fa-solid fa-id-card"></i>
+
+                <h3>PNR Status</h3>
+
+                <p>Check confirmation status</p>
+
+            </div>
+
+        </div>
+
+        <section class="stats-section">
+
+            <div class="stat-card">
+        
+                <i class="fa-solid fa-ticket"></i>
+        
+                <h2 id="tripCount">0</h2>
+        
+                <p>Total Bookings</p>
+        
+            </div>
+        
+            <div class="stat-card">
+        
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+        
+                <h2 id="totalFare">₹0</h2>
+        
+                <p>Total Fare Paid</p>
+        
+            </div>
+        
+            <div class="stat-card">
+        
+                <i class="fa-solid fa-check-circle"></i>
+        
+                <h2 id="confirmedCount">0</h2>
+        
+                <p>Confirmed Tickets</p>
+        
+            </div>
+        
+            <div class="stat-card">
+        
+                <i class="fa-solid fa-times-circle"></i>
+        
+                <h2 id="cancelledCount">0</h2>
+        
+                <p>Cancelled Tickets</p>
+        
+            </div>
+        
+        </section>
+
+        <section class="booking-section">
+
+            <div class="booking-header">
+        
+                <h2>Recent Bookings</h2>
+        
+                <a href="my-bookings.html">View All</a>
+        
+            </div>
+        
+            <table>
+        
+                <thead>
+        
+                    <tr>
+        
+                        <th>Train</th>
+        
+                        <th>Route</th>
+        
+                        <th>Date</th>
+        
+                        <th>Status</th>
+        
+                    </tr>
+        
+                </thead>
+        
+                <tbody id="bookingTable">
+        
+                </tbody>
+        
+            </table>
+        
+        </section>
+
+    </main>
+
+</div>
+<link rel="stylesheet" href="toast.css">
+<script src="dashboard.js"></script>
+
+</body>
+
+</html>
+

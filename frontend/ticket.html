@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RailNova E-Ticket</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="ticket.css">
+
+</head>
+
+<body>
+
+<div class="ticket">
+
+<div class="header">
+
+<h1>🚆 RailNova E-Ticket</h1>
+
+<p>Your Journey Starts Here</p>
+
+</div>
+
+<div class="status">
+
+✅ BOOKING CONFIRMED
+
+</div>
+
+<div class="route">
+
+<div class="station">
+
+<h2 id="from"></h2>
+
+<p>Source</p>
+
+</div>
+
+<div class="arrow">
+
+🚆 ➜
+
+</div>
+
+<div class="station">
+
+<h2 id="to"></h2>
+
+<p>Destination</p>
+
+</div>
+
+</div>
+
+<!-- Passenger -->
+
+<div class="card">
+
+<h2>👤 Passenger Details</h2>
+
+<div class="row">
+<span>Passenger</span>
+<strong id="passenger"></strong>
+</div>
+
+<div class="row">
+<span>Age</span>
+<strong id="age"></strong>
+</div>
+
+<div class="row">
+<span>Gender</span>
+<strong id="gender"></strong>
+</div>
+
+<div class="row">
+<span>Mobile</span>
+<strong id="mobile"></strong>
+</div>
+
+<div class="row">
+<span>Email</span>
+<strong id="email"></strong>
+</div>
+
+</div>
+
+<!-- Journey -->
+
+<div class="card">
+
+    <h2>🚉 Journey Details</h2>
+    
+    <div class="row">
+    <span>Train Name</span>
+    <strong id="trainName"></strong>
+    </div>
+    
+    <div class="row">
+    <span>Train Number</span>
+    <strong id="trainNumber"></strong>
+    </div>
+    
+    <div class="row">
+    <span>Journey Date</span>
+    <strong id="journeyDate"></strong>
+    </div>
+    
+    <div class="row">
+    <span>Departure</span>
+    <strong id="departure"></strong>
+    </div>
+    
+    <div class="row">
+    <span>Arrival</span>
+    <strong id="arrival"></strong>
+    </div>
+    
+    <div class="row">
+    <span>Fare</span>
+    <strong id="journeyFare"></strong>
+    </div>
+    
+    <div class="row">
+    <span>PNR Number</span>
+    <strong id="pnr"></strong>
+    </div>
+    
+    <div class="row">
+    <span>Journey Status</span>
+    <strong class="confirmed" id="status"></strong>
+    </div>
+    
+    </div>
+
+<!-- Seat -->
+
+<div class="card">
+
+<h2>💺 Seat Details</h2>
+
+<div class="row">
+<span>Coach Type</span>
+<strong id="coach"></strong>
+</div>
+
+<div class="row">
+<span>Coach Number</span>
+<strong id="coachNumber"></strong>
+</div>
+
+<div class="row">
+<span>Seat Number</span>
+<strong id="seatNumber"></strong>
+</div>
+
+<div class="row">
+<span>Berth</span>
+<strong id="berth"></strong>
+</div>
+
+</div>
+
+<!-- Payment -->
+
+<div class="card">
+
+    <h2>💳 Payment Details</h2>
+    
+    <div class="row">
+    <span>Fare Paid</span>
+    <strong id="paymentFare"></strong>
+    </div>
+    
+    <div class="row">
+    <span>Payment Method</span>
+    <strong id="paymentMethod"></strong>
+    </div>
+    
+    <div class="row">
+    <span>Transaction ID</span>
+    <strong id="transactionId"></strong>
+    </div>
+    
+    <div class="row">
+    <span>Payment Status</span>
+    <strong id="paymentStatus" class="confirmed"></strong>
+    </div>
+    
+    <div class="row">
+    <span>Booking Time</span>
+    <strong id="bookingTime"></strong>
+    </div>
+    
+    </div>
+
+<!-- QR -->
+
+<div class="qr">
+
+<h2>📱 Ticket Verification</h2>
+
+<div id="qrcode" class="qr-box"></div>
+
+<small>
+
+Scan this QR at the station for ticket verification.
+
+</small>
+
+</div>
+
+<!-- Buttons -->
+
+<div class="actions">
+
+<button onclick="window.print()">
+
+🖨 Print Ticket
+
+</button>
+
+<button onclick="downloadPDF()">
+
+📥 Download PDF
+
+</button>
+
+<button onclick="window.location.href='dashboard.html'">
+
+🏠 Dashboard
+
+</button>
+
+</div>
+
+<div class="footer">
+
+<strong>RailNova</strong>
+
+<br>
+
+Have a Safe & Happy Journey ❤️
+
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="ticket.js"></script>
+
+</body>
+
+</html>

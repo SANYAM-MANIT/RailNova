@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Add Train | RailNova</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="add-train.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🚆 Add New Train</h1>
+
+<form id="trainForm">
+
+<input type="text" id="trainName" placeholder="Train Name" required>
+
+<input type="text" id="trainNumber" placeholder="Train Number" required>
+
+<input type="text" id="from" placeholder="From Station" required>
+
+<input type="text" id="to" placeholder="Destination Station" required>
+
+<label>Departure Time</label>
+<input type="time" id="departure" required>
+
+<label>Arrival Time</label>
+<input type="time" id="arrival" required>
+
+<input type="number" id="totalSeats" placeholder="Total Seats" required>
+
+<input type="number" id="fare" placeholder="Fare (₹)" required>
+
+<button type="submit">
+
+➕ Add Train
+
+</button>
+
+</form>
+
+</div>
+
+<script src="add-train.js"></script>
+
+</body>
+
+</html>

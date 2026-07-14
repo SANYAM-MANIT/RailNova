@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Ticket | RailNova</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="book-ticket.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Passenger Details</h1>
+
+    <div class="train-info">
+
+        <h2 id="trainName">Train Name</h2>
+
+        <p>
+            <strong>Train No:</strong>
+            <span id="trainNumber"></span>
+        </p>
+
+        <p>
+            <strong>From:</strong>
+            <span id="from"></span>
+        </p>
+
+        <p>
+            <strong>To:</strong>
+            <span id="to"></span>
+        </p>
+
+    </div>
+
+    <form id="bookingForm">
+
+        <div class="input-box">
+
+            <label>Passenger Name</label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter Passenger Name"
+                required
+            >
+
+        </div>
+
+        <div class="input-box">
+
+            <label>Age</label>
+
+            <input
+                type="number"
+                id="age"
+                placeholder="Enter Age"
+                required
+            >
+
+        </div>
+
+        <div class="input-box">
+
+            <label>Gender</label>
+
+            <select id="gender">
+
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+
+            </select>
+
+        </div>
+
+        <div class="input-box">
+
+            <label>Coach</label>
+
+            <select id="coach">
+
+                <option>Sleeper</option>
+                <option>3A</option>
+                <option>2A</option>
+                <option>1A</option>
+                <option>CC</option>
+
+            </select>
+
+        </div>
+
+        <div class="input-box">
+
+            <label>Berth Preference</label>
+        
+            <select id="berth">
+        
+                <option>Lower</option>
+                <option>Middle</option>
+                <option>Upper</option>
+                <option>Side Lower</option>
+                <option>Side Upper</option>
+                <option>Window</option>
+        
+            </select>
+        
+        </div>
+
+        <div class="form-group">
+
+            <label for="concession">Concession Type</label>
+        
+            <select id="concession">
+        
+                <option value="None">No Concession</option>
+        
+                <option value="Senior Citizen">Senior Citizen</option>
+        
+                <option value="PWD">Person with Disability (PWD)</option>
+        
+            </select>
+        
+        </div>
+        
+        <div id="concessionWarning" class="warning-box">
+        
+            ⚠ <b>Important Notice</b><br><br>
+        
+            If you select <b>Senior Citizen</b> or <b>PWD</b> concession,
+            you must carry a valid Government-issued identity card or disability certificate during your journey.
+        
+            <br><br>
+        
+            Failure to produce valid proof may lead to cancellation of concession benefits or penalty as per railway rules.
+        
+        </div>
+
+        <div class="input-box">
+
+            <label>Mobile Number</label>
+
+            <input
+                type="text"
+                id="mobile"
+                placeholder="Enter Mobile Number"
+                required
+            >
+
+        </div>
+
+        <div class="input-box">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter Email"
+                required
+            >
+
+        </div>
+
+        <button type="submit">
+
+            Confirm Booking
+
+        </button>
+
+    </form>
+
+</div>
+
+<script src="book-ticket.js"></script>
+
+</body>
+
+</html>

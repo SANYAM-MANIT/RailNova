@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RailNova Admin</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="toast.css">
+<link rel="stylesheet" href="admin-dashboard.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="mobile-header">
+
+        <button id="menuBtn">
+    
+            <i class="fa-solid fa-bars"></i>
+    
+        </button>
+    
+        <h2>🚆 RailNova Admin</h2>
+    
+    </div>
+
+<div class="dashboard">
+
+    <div class="sidebar" id="sidebar">
+
+        <h2>🚆 RailNova</h2>
+        
+        <a href="admin-dashboard.html" class="active">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+        </a>
+        
+        <a href="add-train.html" class="active">
+            <i class="fa-solid fa-plus"></i>
+            Add Train
+        </a>
+        
+        <a href="manage-trains.html" class="active">
+            <i class="fa-solid fa-train"></i>
+            Manage Trains
+        </a>
+        
+        <a href="view-users.html" class="active">
+            <i class="fa-solid fa-users"></i>
+            Users
+        </a>
+        
+        <a href="view-bookings.html" class="active">
+            <i class="fa-solid fa-ticket"></i>
+            Bookings
+        </a>
+        
+        <a href="#" id="logoutBtn" class="active">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </a>
+        
+        </div>
+
+        <div class="overlay" id="overlay"></div>
+
+<div class="main">
+
+<h1>Admin Dashboard</h1>
+
+<div class="cards">
+
+<div class="card">
+
+<h2 id="users">0</h2>
+
+<p>Total Users</p>
+
+</div>
+
+<div class="card">
+
+<h2 id="trains">0</h2>
+
+<p>Total Trains</p>
+
+</div>
+
+<div class="card">
+
+<h2 id="bookings">0</h2>
+
+<p>Total Bookings</p>
+
+</div>
+
+<div class="card">
+
+<h2 id="cancelled">0</h2>
+
+<p>Cancelled</p>
+
+</div>
+
+<div class="card">
+
+    <h2 id="revenue">₹0</h2>
+
+    <p>Total Revenue</p>
+
+</div>
+
+<div class="card">
+
+    <h2 id="confirmed">0</h2>
+
+    <p>Confirmed</p>
+
+</div>
+
+<div class="card">
+
+    <h2 id="today">0</h2>
+
+    <p>Today's Bookings</p>
+
+</div>
+
+<div class="card">
+
+    <h2 id="routes">0</h2>
+
+    <p>Popular Routes</p>
+
+</div>
+
+</div>
+
+<div class="actions">
+
+<button onclick="window.location.href='add-train.html'">
+
+➕ Add Train
+
+</button>
+
+<button onclick="window.location.href='manage-trains.html'">
+
+🚆 Manage Trains
+
+</button>
+
+<button onclick="window.location.href='view-bookings.html'">
+
+🎫 View Bookings
+
+</button>
+
+<button onclick="window.location.href='view-users.html'">
+
+👥 View Users
+
+</button>
+
+</div>
+
+<section class="analytics"></section>
+
+    <div class="chart-card">
+
+        <h2>Monthly Bookings</h2>
+
+        <canvas id="bookingChart"></canvas>
+
+    </div>
+
+    <div class="chart-card">
+
+        <h2>Booking Status</h2>
+
+        <canvas id="statusChart"></canvas>
+
+    </div>
+
+</section>
+
+<section class="bottom-grid">
+
+    <div class="recent-bookings">
+
+        <h2>Recent Bookings</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Passenger</th>
+
+                    <th>Train</th>
+
+                    <th>Fare</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="recentBookings">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="popular-routes">
+
+        <h2>Popular Routes</h2>
+
+        <div id="popularRoutes"></div>
+
+    </div>
+
+</section>
+
+</div>
+
+</div>
+<script src="toast.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="admin-dashboard.js"></script>
+
+</body>
+
+</html>

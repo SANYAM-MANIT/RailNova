@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Manage Trains | RailNova</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="manage-trains.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🚆 Manage Trains</h1>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Train No.</th>
+
+<th>Train Name</th>
+
+<th>Route</th>
+
+<th>Seats</th>
+
+<th>Fare</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="trainTable">
+
+</tbody>
+
+</table>
+
+</div>
+<div id="editModal" class="modal">
+
+    <div class="modal-content">
+  
+      <h2>Edit Train</h2>
+  
+      <input type="text" id="editName" placeholder="Train Name">
+      <input type="text" id="editFrom" placeholder="From">
+      <input type="text" id="editTo" placeholder="To">
+      <input type="text" id="editDeparture" placeholder="Departure (HH:MM)">
+      <input type="text" id="editArrival" placeholder="Arrival (HH:MM)">
+      <input type="number" id="editSeats" placeholder="Total Seats">
+      <input type="number" id="editFare" placeholder="Fare">
+  
+      <button onclick="submitEdit()">Update Train</button>
+      <button onclick="closeModal()" style="background:red;">Cancel</button>
+  
+    </div>
+  
+  </div>
+<script src="manage-trains.js"></script>
+
+</body>
+
+</html>

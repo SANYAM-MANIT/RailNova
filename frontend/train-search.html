@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Train Search</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="train-search.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Search Trains</h1>
+
+        <div class="search-box">
+
+            <div class="field">
+
+                <label>From</label>
+                <input type="text" id="from" placeholder="Enter Source">
+
+            </div>
+
+            <button id="swap">
+
+                <i class="fa-solid fa-right-left"></i>
+
+            </button>
+
+            <div class="field">
+
+                <label>To</label>
+                <input type="text" id="to" placeholder="Enter Destination">
+
+            </div>
+
+            <div class="field">
+
+                <label>Date</label>
+                <input type="date" id="date">
+
+            </div>
+
+            <div class="field">
+
+                <label>Class</label>
+
+                <select id="class">
+
+                    <option>Sleeper</option>
+                    <option>3A</option>
+                    <option>2A</option>
+                    <option>1A</option>
+                    <option>CC</option>
+
+                </select>
+
+            </div>
+
+            <button class="search-btn">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Search Trains
+
+            </button>
+
+        </div>
+
+        <!-- Dynamic Train Results -->
+
+        <div id="results" class="results">
+
+        </div>
+
+    </div>
+
+    <script src="train-search.js"></script>
+
+</body>
+
+</html>

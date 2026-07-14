@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PNR Status | RailNova</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="pnr-status.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="search-box">
+
+        <h1>🚆 RailNova PNR Status</h1>
+
+        <p>Enter your 10-digit PNR Number</p>
+
+        <input
+            type="text"
+            id="pnrInput"
+            maxlength="10"
+            placeholder="Enter PNR Number"
+        >
+
+        <button onclick="checkPNR()">
+
+            Check Status
+
+        </button>
+
+    </div>
+
+    <div
+        id="result"
+        class="result"
+        style="display:none;"
+    >
+
+        <h2>Ticket Details</h2>
+
+        <div class="row">
+
+            <span>Passenger</span>
+
+            <strong id="passenger"></strong>
+
+        </div>
+
+        <div class="row">
+
+            <span>Train</span>
+
+            <strong id="train"></strong>
+
+        </div>
+
+        <div class="row">
+
+            <span>Train Number</span>
+
+            <strong id="trainNumber"></strong>
+
+        </div>
+
+        <div class="row">
+
+            <span>Route</span>
+
+            <strong id="route"></strong>
+
+        </div>
+
+        <div class="row">
+
+            <span>Coach</span>
+
+            <strong id="coach"></strong>
+
+        </div>
+
+        <div class="row">
+
+            <span>Seat</span>
+
+            <strong id="seat"></strong>
+
+        </div>
+
+        <div class="row">
+
+            <span>PNR</span>
+
+            <strong id="pnr"></strong>
+
+        </div>
+
+        <div class="row">
+
+            <span>Status</span>
+
+            <strong
+                id="status"
+                class="confirmed"
+            ></strong>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="pnr-status.js"></script>
+
+</body>
+
+</html>

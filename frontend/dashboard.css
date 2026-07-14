@@ -1,0 +1,1026 @@
+:root{
+
+    --primary:#2563eb;
+
+    --dark:#0f172a;
+
+    --light:#f8fafc;
+
+    --white:#ffffff;
+
+    --text:#1e293b;
+
+    --gray:#64748b;
+
+    --border:#e2e8f0;
+
+}
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:"Poppins",sans-serif;
+
+}
+
+body{
+
+    background:var(--light);
+
+}
+
+.dashboard{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+.sidebar{
+
+    width:270px;
+
+    background:var(--dark);
+
+    color:white;
+
+    padding:30px 22px;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:50px;
+
+}
+
+.logo i{
+
+    font-size:28px;
+
+    color:#60a5fa;
+
+}
+
+.logo h2{
+
+    font-size:28px;
+
+}
+
+.sidebar nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.sidebar nav a{
+
+    text-decoration:none;
+
+    color:#cbd5e1;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px 18px;
+
+    border-radius:14px;
+
+    transition:.3s;
+
+    font-weight:500;
+
+}
+
+.sidebar nav a:hover{
+
+    background:#1e293b;
+
+    color:white;
+
+}
+
+.sidebar nav a.active{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+.sidebar nav i{
+
+    width:22px;
+
+    text-align:center;
+
+}
+
+.content{
+
+    flex:1;
+
+    padding:35px;
+
+}
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    margin-bottom:45px;
+
+}
+
+header h1{
+
+    color:var(--text);
+
+    font-size:34px;
+
+}
+
+header p{
+
+    color:var(--gray);
+
+    margin-top:8px;
+
+}
+
+.profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+}
+
+.profile i{
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    color:var(--gray);
+
+}
+
+.avatar{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:600;
+
+}
+
+.section-title{
+
+    margin-bottom:25px;
+
+    color:var(--text);
+
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.07);
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.card i{
+
+    font-size:42px;
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+.card h3{
+
+    color:var(--text);
+
+}
+
+.stats-section{
+
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:22px;
+
+}
+
+.stat-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.06);
+
+    transition:.3s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.stat-card i{
+
+    font-size:28px;
+
+    color:var(--primary);
+
+    margin-bottom:18px;
+
+}
+
+.stat-card h2{
+
+    font-size:34px;
+
+    color:var(--text);
+
+}
+
+.stat-card p{
+
+    color:var(--gray);
+
+    margin-top:8px;
+
+}
+
+.booking-section{
+
+    margin-top:45px;
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.06);
+
+    overflow-x:auto;
+
+}
+
+.booking-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.booking-header a{
+
+    color:var(--primary);
+
+    font-weight:600;
+
+}
+
+table{
+
+    width:100%;
+
+    min-width:650px;
+
+    border-collapse:collapse;
+
+}
+
+th{
+
+    text-align:left;
+
+    color:var(--gray);
+
+    padding-bottom:18px;
+
+}
+
+td{
+
+    padding:18px 0;
+
+    border-top:1px solid var(--border);
+
+    color:var(--text);
+
+}
+
+.confirmed{
+
+    background:#dcfce7;
+
+    color:#166534;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+}
+
+.waiting{
+
+    background:#fef3c7;
+
+    color:#92400e;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+}
+
+.card{
+
+    cursor:pointer;
+    
+    transition:.3s;
+    
+    }
+    
+    .card:hover{
+    
+    transform:translateY(-8px);
+    
+    box-shadow:0 15px 35px rgba(37,99,235,.18);
+    
+    }
+
+    .top-right{
+
+        display:flex;
+    
+        align-items:center;
+    
+        gap:20px;
+    
+        position:relative;
+    
+        z-index:1000;
+    
+    }
+        
+    .notification{
+
+        position:relative;
+    
+        width:42px;
+    
+        height:42px;
+    
+        display:flex;
+    
+        align-items:center;
+    
+        justify-content:center;
+    
+        cursor:pointer;
+    
+        color:#374151;
+    
+        font-size:24px;
+    
+    }
+    
+    .notification:hover{
+    
+        color:#2563eb;
+    
+    }
+        
+        .notification-dot{
+        
+        position:absolute;
+        
+        top:1px;
+        
+        right:0;
+        
+        width:10px;
+        
+        height:10px;
+        
+        background:#ef4444;
+        
+        border-radius:50%;
+        
+        border:2px solid white;
+        
+        }
+        
+        .profile-circle{
+        
+        width:52px;
+        
+        height:52px;
+        
+        border-radius:50%;
+        
+        background:#2563eb;
+        
+        display:flex;
+        
+        justify-content:center;
+        
+        align-items:center;
+        
+        color:white;
+        
+        font-size:18px;
+        
+        font-weight:700;
+        
+        cursor:pointer;
+        
+        transition:.3s;
+        
+        box-shadow:0 6px 15px rgba(37,99,235,.3);
+        
+        }
+        
+        .profile-circle:hover{
+        
+        transform:scale(1.08);
+        
+        background:#1d4ed8;
+        
+        }
+
+        .notification{
+
+            position:relative;
+            
+            font-size:24px;
+            
+            cursor:pointer;
+            
+            color:#374151;
+            
+            }
+            
+            .notification-menu{
+
+                display:none;
+            
+                position:absolute;
+            
+                top:55px;
+            
+                right:0;
+            
+                width:320px;
+            
+                max-height:350px;
+            
+                overflow-y:auto;
+            
+                background:#fff;
+            
+                border-radius:16px;
+            
+                box-shadow:0 15px 35px rgba(0,0,0,.18);
+            
+                padding:18px;
+            
+                z-index:9999;
+            
+            }
+            
+            .notification-menu h4{
+            
+            margin-bottom:15px;
+            
+            color:#111827;
+            
+            }
+            
+            .notification-menu p{
+            
+            color:#6b7280;
+            
+            font-size:14px;
+            
+            padding:10px 0;
+            
+            border-bottom:1px solid #eee;
+            
+            }
+            
+            .notification.show .notification-menu{
+            
+            display:block;
+            
+            }
+
+            .notification-item{
+
+                display:flex;
+                
+                align-items:flex-start;
+                
+                gap:12px;
+                
+                padding:12px 0;
+                
+                border-bottom:1px solid #edf2f7;
+                
+                }
+                
+                .notification-item:last-child{
+                
+                border-bottom:none;
+                
+                }
+                
+                .notification-icon{
+                
+                font-size:22px;
+                
+                }
+                
+                .notification-text{
+                
+                font-size:14px;
+                
+                color:#374151;
+                
+                line-height:1.5;
+                
+                }
+
+
+                /* ===========================
+   Tablet
+=========================== */
+
+@media (max-width:992px){
+
+    .sidebar{
+
+        width:220px;
+
+        padding:25px 15px;
+
+    }
+
+    .logo h2{
+
+        font-size:22px;
+
+    }
+
+    .content{
+
+        padding:25px;
+
+    }
+
+    .cards{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .stats-section{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:768px){
+
+    .dashboard{
+
+        flex-direction:column;
+
+    }
+
+    .sidebar{
+
+        width:100%;
+
+        padding:18px;
+
+    }
+
+    .logo{
+
+        justify-content:center;
+
+        margin-bottom:25px;
+
+    }
+
+    .sidebar nav{
+
+        display:grid;
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:10px;
+
+    }
+
+    .sidebar nav a{
+
+        justify-content:center;
+
+        font-size:14px;
+
+        padding:12px;
+
+    }
+
+    .sidebar nav a i{
+
+        display:none;
+
+    }
+
+    .content{
+
+        padding:20px;
+
+    }
+
+    header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        align-items:flex-start;
+
+    }
+
+    header h1{
+
+        font-size:26px;
+
+    }
+
+    .top-right{
+
+        width:100%;
+
+        justify-content:flex-end;
+
+    }
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .stats-section{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .stat-card{
+
+        text-align:center;
+
+    }
+
+    .booking-section{
+
+        overflow-x:auto;
+
+    }
+
+    table{
+
+        min-width:650px;
+
+    }
+
+    .notification-menu{
+
+        width:280px;
+
+        right:-20px;
+
+    }
+
+}
+
+
+/* ===========================
+   Small Phones
+=========================== */
+
+@media (max-width:480px){
+
+    .sidebar nav{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .stats-section{
+
+        grid-template-columns:1fr;
+
+    }
+
+    header h1{
+
+        font-size:22px;
+
+    }
+
+    .card{
+
+        padding:25px;
+
+    }
+
+    .stat-card{
+
+        padding:22px;
+
+    }
+
+}
+
+/* ===========================
+   Mobile Header
+=========================== */
+
+.mobile-header{
+
+    display:none;
+
+}
+
+
+@media(max-width:768px){
+
+    .mobile-header{
+
+        display:flex;
+
+        justify-content:space-between;
+
+        align-items:center;
+
+        padding:18px 22px;
+
+        background:#0f172a;
+
+        color:white;
+
+        position:sticky;
+
+        top:0;
+
+        z-index:1200;
+
+    }
+
+    .mobile-header h2{
+
+        font-size:22px;
+
+    }
+
+    #menuBtn{
+
+        background:none;
+
+        border:none;
+
+        color:white;
+
+        font-size:26px;
+
+        cursor:pointer;
+
+    }
+
+    .dashboard{
+
+        display:block;
+
+    }
+
+    .sidebar{
+
+        position:fixed;
+
+        left:-280px;
+
+        top:0;
+
+        width:260px;
+
+        height:100vh;
+
+        transition:.35s;
+
+        z-index:1300;
+
+        overflow-y:auto;
+
+    }
+
+    .sidebar.show{
+
+        left:0;
+
+    }
+
+    .sidebar-overlay{
+
+        position:fixed;
+
+        inset:0;
+
+        background:rgba(0,0,0,.45);
+
+        display:none;
+
+        z-index:1200;
+
+    }
+
+    .sidebar-overlay.show{
+
+        display:block;
+
+    }
+
+    .content{
+
+        padding:22px;
+
+    }
+
+}
+
+
+/* ===========================
+   Recent Bookings - Mobile
+=========================== */
+
+@media(max-width:768px){
+
+    .booking-section{
+
+        padding:18px;
+
+        overflow-x:auto;
+
+        -webkit-overflow-scrolling:touch;
+
+    }
+
+    .booking-header{
+
+        margin-bottom:18px;
+
+    }
+
+    .booking-header h2{
+
+        font-size:22px;
+
+    }
+
+    .booking-header a{
+
+        font-size:14px;
+
+    }
+
+    table{
+
+        min-width:600px;
+
+    }
+
+    th{
+
+        font-size:14px;
+
+        white-space:nowrap;
+
+    }
+
+    td{
+
+        font-size:14px;
+
+        white-space:nowrap;
+
+    }
+
+}
