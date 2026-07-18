@@ -6,7 +6,7 @@ let editId = null;
 
 async function loadTrains(){
 
-    const res = await fetch("https://railnova.onrender.com/api/admin/trains",{
+    const res = await fetch("http://localhost:8080/api/admin/trains",{
         headers:{
             Authorization:`Bearer ${token}`
         }
@@ -71,7 +71,7 @@ async function submitEdit(){
 
     };
 
-    await fetch(`https://railnova.onrender.com/api/admin/train/${editId}`,{
+    await fetch(`http://localhost:8080/api/admin/train/${editId}`,{
         method:"PUT",
         headers:{
             "Content-Type":"application/json",
@@ -88,7 +88,7 @@ async function deleteTrain(id){
 
     if(!confirm("Delete this train?")) return;
 
-    await fetch(`https://railnova.onrender.com/api/admin/train/${id}`,{
+    await fetch(`http://localhost:8080/api/admin/train/${id}`,{
         method:"DELETE",
         headers:{
             Authorization:`Bearer ${token}`

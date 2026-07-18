@@ -14,7 +14,7 @@ async function checkPNR() {
 
         const response = await fetch(
 
-            `https://railnova.onrender.com/api/bookings/pnr/${pnr}`
+            `http://localhost:8080/api/bookings/pnr/${pnr}`
 
         );
 

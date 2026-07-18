@@ -18,7 +18,7 @@ searchBtn.addEventListener("click", async () => {
 
     try {
 
-        const response = await fetch(`https://railnova.onrender.com/api/trains/search?from=${from}&to=${to}`);
+        const response = await fetch(`http://localhost:8080/api/trains/search?from=${from}&to=${to}`);
 
         const trains = await response.json();
 
