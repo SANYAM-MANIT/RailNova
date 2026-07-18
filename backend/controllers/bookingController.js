@@ -159,155 +159,121 @@ const bookTicket = async (req, res) => {
 
         });
 
+        console.log("========== BOOKING ==========");
+        console.log("Email from frontend:", email);
+        console.log("Booking email:", booking.email);
+        console.log("=============================");
         await sendEmail(
 
             email,
         
-            `🎫 Booking Confirmed | PNR ${booking.pnr} | RailNova`,
+            `🎫 RailNova Ticket Confirmed | PNR ${booking.pnr}`,
         
-`
-<div style="max-width:700px;margin:auto;font-family:Arial,sans-serif;background:#f4f8ff;padding:30px;">
-
-    <div style="background:#2563eb;color:white;padding:25px;border-radius:15px 15px 0 0;text-align:center;">
-
-        <h1 style="margin:0;">🚆 RailNova</h1>
-
-        <p style="margin-top:8px;font-size:16px;">
-            Your Journey Begins Here
-        </p>
-
-    </div>
-
-    <div style="background:white;padding:30px;border-radius:0 0 15px 15px;">
-
-        <h2 style="color:#16a34a;margin-top:0;">
-            ✅ Booking Confirmed
-        </h2>
-
-        <p>
-            Hello <b>${passengerName}</b>,
-        </p>
-
-        <p>
-            Your train ticket has been booked successfully.
-        </p>
-
-        <table style="width:100%;border-collapse:collapse;margin-top:20px;">
-
-            <tr>
-                <td style="padding:10px;"><b>PNR</b></td>
-                <td style="padding:10px;">${booking.pnr}</td>
-            </tr>
-
-            <tr style="background:#f8fafc;">
-                <td style="padding:10px;"><b>Train</b></td>
-                <td style="padding:10px;">
-                    ${booking.trainName}
-                    (${booking.trainNumber})
-                </td>
-            </tr>
-
-            <tr>
-                <td style="padding:10px;"><b>From</b></td>
-                <td style="padding:10px;">${booking.from}</td>
-            </tr>
-
-            <tr style="background:#f8fafc;">
-                <td style="padding:10px;"><b>To</b></td>
-                <td style="padding:10px;">${booking.to}</td>
-            </tr>
-
-            <tr>
-                <td style="padding:10px;"><b>Date</b></td>
-                <td style="padding:10px;">${booking.journeyDate}</td>
-            </tr>
-
-            <tr style="background:#f8fafc;">
-                <td style="padding:10px;"><b>Departure</b></td>
-                <td style="padding:10px;">${booking.departure}</td>
-            </tr>
-
-            <tr>
-                <td style="padding:10px;"><b>Arrival</b></td>
-                <td style="padding:10px;">${booking.arrival}</td>
-            </tr>
-
-            <tr style="background:#f8fafc;">
-                <td style="padding:10px;"><b>Coach</b></td>
-                <td style="padding:10px;">${booking.coachNumber}</td>
-            </tr>
-
-            <tr>
-                <td style="padding:10px;"><b>Seat</b></td>
-                <td style="padding:10px;">${booking.seatNumber}</td>
-            </tr>
-
-            <tr style="background:#f8fafc;">
-                <td style="padding:10px;"><b>Berth</b></td>
-                <td style="padding:10px;">${booking.berth}</td>
-            </tr>
-
-            <tr>
-                <td style="padding:10px;"><b>Passenger</b></td>
-                <td style="padding:10px;">${booking.passengerName}</td>
-            </tr>
-
-            <tr style="background:#f8fafc;">
-                <td style="padding:10px;"><b>Fare Paid</b></td>
-                <td style="padding:10px;font-weight:bold;color:#2563eb;">
-                    ₹${booking.fare}
-                </td>
-            </tr>
-
-            <tr>
-                <td style="padding:10px;"><b>Payment</b></td>
-                <td style="padding:10px;color:green;">
-                    ${booking.paymentStatus}
-                </td>
-            </tr>
-
-        </table>
-
-        <div style="margin-top:30px;padding:18px;background:#fff8e6;border-left:5px solid #f59e0b;border-radius:10px;">
-
-            <b>Important</b><br><br>
-
-            Please carry a valid Government-issued Photo ID during your journey.
-
-        </div>
-
-        <div style="text-align:center;margin-top:35px;">
-
-            <h3 style="color:#2563eb;margin-bottom:10px;">
-                Thank you for choosing RailNova ❤️
-            </h3>
-
-            <p style="color:#666;">
-                We wish you a safe and pleasant journey.
-            </p>
-
-        </div>
-
-    </div>
-
-    <hr style="margin:30px 0">
-
-<p style="font-size:13px;color:#777;text-align:center;line-height:1.8;">
-
-© 2026 RailNova. All Rights Reserved.<br>
-
-Designed & Developed by
-<a href="https://github.com/SANYAM-MANIT"
-style="color:#2563eb;text-decoration:none;font-weight:bold;">
-Sanyam Jain
-</a>.<br>
-
-This is an automatically generated email.
-
-</p>
-
-</div>
-`
+            `
+            <div style="max-width:650px;margin:auto;font-family:Arial,sans-serif;background:#f4f8ff;padding:20px;">
+        
+                <div style="background:#2563eb;color:white;padding:20px;text-align:center;border-radius:10px 10px 0 0;">
+        
+                    <h1 style="margin:0;">🚆 RailNova</h1>
+        
+                    <p style="margin-top:8px;">
+                        Your Journey Begins Here
+                    </p>
+        
+                </div>
+        
+                <div style="background:white;padding:25px;border-radius:0 0 10px 10px;">
+        
+                    <h2 style="color:#16a34a;">
+                        ✅ Booking Confirmed
+                    </h2>
+        
+                    <p>Hello <b>${booking.passengerName}</b>,</p>
+        
+                    <p>Your train ticket has been booked successfully.</p>
+        
+                    <hr>
+        
+                    <h3 style="color:#2563eb;">Journey Details</h3>
+        
+                    <p><b>PNR:</b> ${booking.pnr}</p>
+        
+                    <p><b>Train:</b> ${booking.trainName} (${booking.trainNumber})</p>
+        
+                    <p><b>Route:</b> ${booking.from} ➜ ${booking.to}</p>
+        
+                    <p><b>Journey Date:</b> ${booking.journeyDate}</p>
+        
+                    <p><b>Departure:</b> ${booking.departure}</p>
+        
+                    <p><b>Arrival:</b> ${booking.arrival}</p>
+        
+                    <hr>
+        
+                    <h3 style="color:#2563eb;">Passenger Details</h3>
+        
+                    <p><b>Name:</b> ${booking.passengerName}</p>
+        
+                    <p><b>Age:</b> ${booking.age}</p>
+        
+                    <p><b>Gender:</b> ${booking.gender}</p>
+        
+                    <p><b>Coach:</b> ${booking.coachNumber}</p>
+        
+                    <p><b>Seat:</b> ${booking.seatNumber}</p>
+        
+                    <p><b>Berth:</b> ${booking.berth}</p>
+        
+                    <hr>
+        
+                    <h3 style="color:#2563eb;">Payment</h3>
+        
+                    <p><b>Fare Paid:</b> ₹${booking.fare}</p>
+        
+                    <p><b>Status:</b>
+                        <span style="color:green;font-weight:bold;">
+                            ${booking.paymentStatus}
+                        </span>
+                    </p>
+        
+                    <p><b>Transaction ID:</b> ${booking.transactionId}</p>
+        
+                    <div style="margin-top:25px;padding:15px;background:#fff8dc;border-left:4px solid orange;border-radius:6px;">
+        
+                        <b>Travel Reminder</b>
+        
+                        <p style="margin-top:10px;">
+                            Please carry a valid Government Photo ID during your journey.
+                        </p>
+        
+                    </div>
+        
+                    <div style="margin-top:30px;text-align:center;">
+        
+                        <h3 style="color:#2563eb;">
+                            Thank you for choosing RailNova ❤️
+                        </h3>
+        
+                        <p>Have a safe and pleasant journey!</p>
+        
+                    </div>
+        
+                </div>
+        
+                <div style="text-align:center;color:#777;font-size:13px;margin-top:20px;line-height:1.8;">
+        
+                    © 2026 RailNova. All Rights Reserved.<br>
+        
+                    Designed & Developed by
+                    <a href="https://github.com/SANYAM-MANIT"
+                       style="color:#2563eb;text-decoration:none;font-weight:bold;">
+                       Sanyam Jain
+                    </a>
+        
+                </div>
+        
+            </div>
+            `
         
         );
 
