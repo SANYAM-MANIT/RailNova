@@ -1,25 +1,25 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+
 const connectDB = require("./config/db");
-const authRoutes = require("./routes/authRoutes"); 
-const trainRoutes=require("./routes/trainRoutes");
+
+const authRoutes = require("./routes/authRoutes");
+const trainRoutes = require("./routes/trainRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
 const liveStatusRoutes = require("./routes/liveStatusRoutes");
 const pnrRoutes = require("./routes/pnrRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 
 dotenv.config();
-// console.log(process.env.EMAIL_USER);
-// console.log(process.env.EMAIL_PASS);
+
 connectDB();
 
 const app = express();
+
 const PORT = process.env.PORT || 8080;
 
-app.use(cors());
-const cors = require("cors");
-
+// CORS
 app.use(cors({
     origin: [
         "http://localhost:5500",
@@ -28,9 +28,12 @@ app.use(cors({
     ],
     credentials: true
 }));
+
+// JSON
 app.use(express.json());
 
-app.use("/api/trains",trainRoutes);
+// Routes
+app.use("/api/trains", trainRoutes);
 
 app.use("/api/auth", authRoutes);
 
@@ -42,11 +45,12 @@ app.use("/api/pnr", pnrRoutes);
 
 app.use("/api/admin", adminRoutes);
 
-
+// Test route
 app.get("/", (req, res) => {
     res.send("🚆 RailNova Backend is Running...");
 });
 
+// Start server
 app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`🚀 Server running on port ${PORT}`);
 });
