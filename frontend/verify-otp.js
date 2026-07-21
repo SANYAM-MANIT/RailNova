@@ -18,7 +18,7 @@ document.getElementById("otpForm").addEventListener("submit", async (e) => {
 
         const response = await fetch(
 
-            "http://localhost:8080/api/auth/verify-otp",
+            "https://railnova.onrender.com/api/auth/verify-otp",
 
             {
 
@@ -105,7 +105,7 @@ resendBtn.addEventListener("click",async()=>{
     const email=localStorage.getItem("pendingEmail");
 
     const response=await fetch(
-        "http://localhost:8080/api/auth/resend-otp",
+        "https://railnova.onrender.com/api/auth/resend-otp",
         {
             method:"POST",
             headers:{
