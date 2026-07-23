@@ -18,7 +18,7 @@ form.addEventListener("submit", async (e) => {
     try {
 
         const response = await fetch(
-            "http://localhost:8080/api/auth/signup",
+            "https://railnova.onrender.com/api/auth/signup",
             {
                 method: "POST",
                 headers: {

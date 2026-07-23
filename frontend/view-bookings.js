@@ -20,7 +20,7 @@ async function loadBookings(){
 
     const response=await fetch(
 
-        "http://localhost:8080/api/admin/bookings",
+        "https://railnova.onrender.com/api/admin/bookings",
 
         {
 

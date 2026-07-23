@@ -20,7 +20,7 @@ async function loadUsers(){
 
     const response=await fetch(
 
-        "http://localhost:8080/api/admin/users",
+        "https://railnova.onrender.com/api/admin/users",
 
         {
 

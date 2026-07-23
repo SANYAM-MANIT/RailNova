@@ -55,7 +55,7 @@ payBtn.addEventListener("click", async () => {
 
         const response = await fetch(
 
-            "http://localhost:8080/api/bookings/book",
+            "https://railnova.onrender.com/api/bookings/book",
 
             {
 

@@ -12,7 +12,7 @@ async function loadProfile(){
 
         const response = await fetch(
 
-            "http://localhost:8080/api/auth/profile",
+            "https://railnova.onrender.com/api/auth/profile",
 
             {
 

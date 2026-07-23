@@ -23,7 +23,7 @@ document
 
     const response = await fetch(
 
-        "http://localhost:8080/api/auth/reset-password",
+        "https://railnova.onrender.com/api/auth/reset-password",
 
         {
 
