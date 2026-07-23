@@ -17,7 +17,7 @@ btn.addEventListener("click", async () => {
 
         const response = await fetch(
 
-            `https://railnova.onrender.com/api/live-status/${trainNumber}`
+            `http://localhost:8080/api/live-status/${trainNumber}`
 
         );
 

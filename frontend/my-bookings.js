@@ -8,7 +8,7 @@ async function loadBookings() {
 
         const response = await fetch(
 
-            "https://railnova.onrender.com/api/bookings/my",
+            "http://localhost:8080/api/bookings/my",
 
             {
 
@@ -152,7 +152,7 @@ async function cancelBooking(id){
 
         const response = await fetch(
 
-            `https://railnova.onrender.com/api/bookings/cancel/${id}`,
+            `http://localhost:8080/api/bookings/cancel/${id}`,
 
             {
 

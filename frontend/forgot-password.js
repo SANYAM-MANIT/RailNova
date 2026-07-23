@@ -14,7 +14,7 @@ document
     }
 
     const response = await fetch(
-        "https://railnova.onrender.com/api/auth/forgot-password",
+        "http://localhost:8080/api/auth/forgot-password",
         {
             method:"POST",
             headers:{

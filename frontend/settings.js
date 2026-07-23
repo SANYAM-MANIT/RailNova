@@ -14,7 +14,7 @@ async function loadProfile() {
 
         const response = await fetch(
 
-            "https://railnova.onrender.com/api/auth/profile",
+            "http://localhost:8080/api/auth/profile",
 
             {
 
@@ -68,7 +68,7 @@ document.getElementById("saveProfile").addEventListener("click", async () => {
 
         const response = await fetch(
 
-            "https://railnova.onrender.com/api/auth/update-profile",
+            "http://localhost:8080/api/auth/update-profile",
 
             {
 
@@ -138,7 +138,7 @@ document.getElementById("changePassword").addEventListener("click", async () => 
 
         const response = await fetch(
 
-            "https://railnova.onrender.com/api/auth/change-password",
+            "http://localhost:8080/api/auth/change-password",
 
             {
 
@@ -296,7 +296,7 @@ document.getElementById("deleteAccount").addEventListener("click", async () => {
 
         const response = await fetch(
 
-            "https://railnova.onrender.com/api/auth/delete-account",
+            "http://localhost:8080/api/auth/delete-account",
 
             {
 
