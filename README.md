@@ -241,12 +241,15 @@ Users can cancel their confirmed bookings. After cancellation, the available sea
 
 ### Sanyam Jain
 
-B.Tech CSE
-MANIT Bhopal
+B.Tech CSE Student at **MANIT Bhopal**.
 
-🔗 GitHub: https://github.com/SANYAM-MANIT
+Interested in **Full-Stack Web Development, Backend Development, and Data Structures & Algorithms**.
+
+🔗 **GitHub:** [SANYAM-MANIT](https://github.com/SANYAM-MANIT)
 
 ---
+
+*Built with ❤️ by Sanyam Jain | MANIT Bhopal*
 
 ## 📌 Disclaimer
 
