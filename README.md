@@ -1,7 +1,8 @@
-# 🚆 RailNova — Next-Gen Railway Reservation & Management System
+# 🚆 RailNova — Next-Gen AI-Powered Railway Reservation & Management System
 
 <p align="center">
   <img src="https://img.shields.io/badge/RailNova-v1.0.0-2563eb?style=for-the-badge&logo=train&logoColor=white" alt="RailNova Version" />
+  <img src="https://img.shields.io/badge/AI_Assistant-Google_Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white" alt="Google Gemini AI" />
   <img src="https://img.shields.io/badge/Node.js-v20+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
   <img src="https://img.shields.io/badge/Express.js-Backend-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js" />
   <img src="https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
@@ -11,11 +12,12 @@
 </p>
 
 <p align="center">
-  <b>A feature-packed full-stack web application for seamless online train booking, automated ticket & PNR generation, transactional email notifications, enterprise security, and administrative railway analytics.</b>
+  <b>A feature-packed full-stack web application featuring AI passenger assistance, online train booking, automated ticket & PNR generation, transactional email notifications, enterprise security, and administrative railway analytics.</b>
 </p>
 
 <p align="center">
   <a href="#-key-features">Key Features</a> •
+  <a href="#-ai-assistant-integration">AI Assistant</a> •
   <a href="#-security--data-protection">Security</a> •
   <a href="#-system-architecture">Architecture</a> •
   <a href="#-technology-stack">Tech Stack</a> •
@@ -28,7 +30,7 @@
 
 ## 🌟 Overview
 
-**RailNova** digitizes the entire railway reservation lifecycle. It empowers passengers with real-time train search, coach and berth preference selection, secure OTP email verification, simulated payments, auto-assigned seat allocations, automated PNR generation, and digital ticket management.
+**RailNova** digitizes the entire railway reservation lifecycle. It empowers passengers with an **AI-powered travel assistant**, real-time train search, coach and berth preference selection, secure OTP email verification, simulated payments, auto-assigned seat allocations, automated PNR generation, and digital ticket management.
 
 For administrators, **RailNova** delivers a powerful, protected analytics dashboard featuring system statistics, revenue metrics, live user monitoring, and train inventory management.
 
@@ -40,11 +42,12 @@ For administrators, **RailNova** delivers a powerful, protected analytics dashbo
            ┌────────────────────────┴────────────────────────┐
            ▼                                                 ▼
   👤 Passenger Portal                             👨‍💼 Admin Panel
-  ├── 🔍 Train Search & Availability              ├── 📊 Live System Analytics
-  ├── 📧 Dual-Provider Email Verification         ├── 💰 Revenue & Booking Trends
-  ├── 💺 Dynamic Coach & Seat Allocation          ├── 🚆 Train Inventory Control
-  ├── 💳 Simulated Payment & PNR Generation       └── 🔐 Restricted Access Guard
-  ├── 📩 PDF-Style Ticket Email Delivery
+  ├── 🤖 RailNova AI Travel Assistant              ├── 📊 Live System Analytics
+  ├── 🔍 Train Search & Availability              ├── 💰 Revenue & Booking Trends
+  ├── 📧 Dual-Provider Email Verification         ├── 🚆 Train Inventory Control
+  ├── 💺 Dynamic Coach & Seat Allocation          ├── 🔐 Restricted Access Guard
+  ├── 💳 Simulated Payment & PNR Generation       └── 📈 Real-Time Audit Monitoring
+  ├── 📩 PDF & QR Ticket Generation
   └── ❌ Real-Time Ticket Cancellation
 ```
 
@@ -53,12 +56,14 @@ For administrators, **RailNova** delivers a powerful, protected analytics dashbo
 ## 🚀 Key Features
 
 ### 👤 Passenger Portal
+* **🤖 RailNova AI Travel Assistant**: Conversational AI helper answering questions about train availability, coach classes (`1A`, `2A`, `3A`, `SL`), PNR status, and cancellation policies in real-time.
 * **🔐 Secure Authentication & Email OTP**: Complete registration flow backed by **Brevo REST API** & **Nodemailer SMTP** for fast OTP delivery.
 * **🔎 Smart Train Search**: Search trains by departure/destination, date, and availability status.
 * **💺 Intelligent Seat & Coach Allocation**: Automatic assignment of coaches (`S1`, `B1`, `A1`, `H1`) and berths (`Lower`, `Middle`, `Upper`, `Side Lower`, `Side Upper`).
 * **💳 Simulated Payment Gateway**: Instant ticket confirmation with transaction ID generation and fare summary.
 * **🧾 10-Digit PNR System**: Unique PNR generation for seamless ticket tracking and status verification.
-* **📩 Instant Ticket Confirmation Email**: Automatic email dispatched directly to the passenger containing full journey details.
+* **📱 QR Code & PDF Export**: Instant QR code generation for station scanning and single-click PDF ticket download (`jsPDF`).
+* **📩 Ticket Confirmation Email**: Automatic email dispatched directly to the passenger containing full journey details.
 * **📋 Booking Management**: View active and historical bookings with one-click cancellation and seat restoration.
 
 ### 👨‍💼 Admin Dashboard
@@ -69,9 +74,37 @@ For administrators, **RailNova** delivers a powerful, protected analytics dashbo
 
 ---
 
+## 🤖 AI Assistant Integration
+
+RailNova features an intelligent, floating **AI Assistant** (`/api/ai/chat`) built with a dual fallback strategy:
+
+```text
+               ┌───────────────────────────────┐
+               │    User Asks RailNova AI      │
+               └───────────────┬───────────────┘
+                               │
+                               ▼
+                Is GEMINI_API_KEY Configured?
+                   /                       \
+                 YES                        NO
+                 /                           \
+                ▼                             ▼
+   🤖 Google Gemini 1.5 Flash API     🧠 Railway Knowledge Base (Fallback)
+   - Real-time Generative Answers     - Instant Coach & Fare Rules
+   - Natural Language Context        - PNR & Booking Guidance
+```
+
+### AI Capabilities:
+- **🚆 Train & Fare Guidance**: Explains differences between 1A, 2A, 3A, Sleeper, and Tatkal quotas.
+- **🧾 PNR & Booking Help**: Step-by-step assistance for checking PNR status and managing bookings.
+- **❌ Refund & Cancellation Info**: Provides accurate cancellation fee and seat restoration policies.
+- **💬 Sleek Floating UI Widget**: Accessible across pages with typing indicators and smooth responsive layout.
+
+---
+
 ## 🛡️ Security & Data Protection
 
-Security is a foundational pillar of RailNova's architecture. The platform implements multi-layered security protocols across authentication, data storage, route authorization, and communication layers:
+Security is a foundational pillar of RailNova's architecture:
 
 ```text
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -87,30 +120,16 @@ Security is a foundational pillar of RailNova's architecture. The platform imple
 ```
 
 ### 1. 🔑 Stateless Token Authentication (JWT)
-* Upon login, authenticated users receive a signed **JSON Web Token (JWT)** containing non-sensitive payload data.
-* Private endpoints (e.g. ticket booking, cancellations, viewing personal history) require a valid token passed via HTTP `Authorization: Bearer <token>` headers.
-* Prevents session hijacking and unauthorized API consumption.
+* Private endpoints (ticket booking, cancellations, personal history) require a valid HTTP `Authorization: Bearer <token>` header.
 
 ### 2. 🔒 Cryptographic Password Hashing (Bcrypt.js)
-* Passwords are never stored in plain text in the database.
-* Uses **Bcrypt.js** with salt factor `10` to hash user credentials before persistence, protecting user accounts against dictionary and rainbow table attacks.
+* Uses **Bcrypt.js** (salt factor `10`) to hash passwords before database storage.
 
 ### 3. 📧 Two-Step OTP Email Verification
-* Prevents spam bot accounts and fake user registrations.
-* Users must verify a 6-digit dynamic **One-Time Password (OTP)** sent to their verified email address before their account is activated or passwords are reset.
-* OTP tokens automatically expire after **5–10 minutes** to enforce security freshness.
+* Requires a 6-digit dynamic OTP sent via **Brevo API / Nodemailer** to verify emails during signup & password resets.
 
-### 4. 🛡️ Role-Based Access Control (RBAC) & Middleware Guards
-* Admin endpoints (`/api/admin/*`) are protected by specialized authorization middleware (`adminMiddleware.js`).
-* Requests to administrative dashboards, system analytics, or train modification APIs are rejected with `403 Forbidden` if the requesting token lacks `isAdmin: true` credentials.
-
-### 5. 🌐 Input Validation & CORS Controls
-* Built-in server-side input validation using `validator.js` ensures emails, inputs, and parameters conform to strict formatting guidelines before processing.
-* **CORS (Cross-Origin Resource Sharing)** rules are configured on Express to restrict backend API access exclusively to trusted frontend domains.
-
-### 6. 🔐 Secret Management & API Protection
-* Sensitive keys (`MONGO_URI`, `JWT_SECRET`, `BREVO_API_KEY`, `EMAIL_PASS`) are isolated in server environment variables and excluded from source control via `.gitignore`.
-* Production emails are transmitted over **HTTPS (Port 443)** using Brevo API, eliminating unencrypted email transfers over open ports.
+### 4. 🛡️ Role-Based Access Control (RBAC)
+* Admin routes (`/api/admin/*`) are protected by `adminMiddleware.js`, rejecting unauthorized users with `403 Forbidden`.
 
 ---
 
@@ -118,20 +137,19 @@ Security is a foundational pillar of RailNova's architecture. The platform imple
 
 | Category | Technologies |
 | :--- | :--- |
-| **Frontend** | HTML5, CSS3 (Modern Glassmorphism Design), JavaScript (ES6+), Fetch API |
+| **Frontend** | HTML5, CSS3 (Glassmorphism UI), JavaScript (ES6+), Fetch API |
 | **Backend** | Node.js, Express.js (REST API Architecture) |
 | **Database** | MongoDB Atlas, Mongoose ODM |
+| **AI Integration** | **Google Gemini API (1.5 Flash)** + **Railway Knowledge Engine** |
 | **Authentication** | JSON Web Tokens (JWT), Bcrypt.js (Password Hashing) |
-| **Transactional Email** | **Brevo REST API (HTTPS)** + **Nodemailer (Gmail SMTP Fallback)** |
+| **Transactional Email** | **Brevo REST API (HTTPS)** + **Nodemailer (Gmail SMTP)** |
+| **Ticket Utilities** | QR Code Generator (`qrcode.js`), PDF Exporter (`jsPDF`) |
 | **Security** | Express Authorization Middleware, RBAC Guards, Validator.js, CORS |
-| **Utilities** | Axios, Dotenv |
 | **Hosting** | Render (Backend API), Vercel (Frontend Client) |
 
 ---
 
 ## ⚡ Email Service Architecture (Dual Provider)
-
-RailNova features a production-ready dual email provider system engineered to eliminate cloud host port-blocking issues (e.g. Render / Heroku outbound SMTP restrictions):
 
 ```text
                ┌───────────────────────────────┐
@@ -158,21 +176,23 @@ RailNova/
 │
 ├── 📁 backend/
 │   ├── 📁 config/        # Database Connection Configuration
-│   ├── 📁 controllers/   # Auth, Booking, Train, Admin Logic
-│   ├── 📁 middleware/    # JWT & Admin Authorization Guards (Security)
-│   ├── 📁 models/        # Mongoose Data Schemas (User, Train, Booking)
-│   ├── 📁 routes/        # Express Route Handlers
+│   ├── 📁 controllers/   # Auth, Booking, Train, Admin, & AI Logic
+│   ├── 📁 middleware/    # JWT & Admin Authorization Guards
+│   ├── 📁 models/        # Mongoose Schemas (User, Train, Booking)
+│   ├── 📁 routes/        # Express Routes (auth, train, booking, admin, ai)
 │   ├── 📁 utils/         # Dual Brevo/Nodemailer Mail Utility (sendEmail.js)
 │   ├── 📄 server.js      # Main Application Entry Point
 │   └── 📄 package.json   # Node Dependencies
 │
-└── 📁 frontend/          # Responsive User Interface (HTML, CSS, JS)
+└── 📁 frontend/          # Responsive UI & Dynamic Scripts
     ├── 📄 index.html     # Landing & Train Search
     ├── 📄 login.html     # User Login
     ├── 📄 signup.html    # User Registration & OTP Verification
-    ├── 📄 ticket.html    # Digital Ticket Display
+    ├── 📄 ticket.html    # Digital Ticket Display with QR & PDF Download
     ├── 📄 pnr.html       # PNR Search & Status
-    └── 📄 admin.html     # Administrator Analytics Dashboard
+    ├── 📄 admin.html     # Administrator Analytics Dashboard
+    ├── 📁 css/ai-chat.css# AI Chatbot Widget Stylesheet
+    └── 📁 js/ai-chat.js  # AI Chatbot Widget Logic
 ```
 
 ---
@@ -200,9 +220,10 @@ JWT_SECRET=your_super_secret_jwt_key
 # Transactional Email Setup
 EMAIL_USER=your_email@gmail.com
 EMAIL_PASS=your_gmail_app_password
-
-# Brevo API (Recommended for Cloud Production Deployment)
 BREVO_API_KEY=your_brevo_api_key
+
+# Optional Google Gemini AI Key
+GEMINI_API_KEY=your_google_gemini_api_key
 ```
 
 ### 3️⃣ Run Locally
@@ -220,6 +241,7 @@ Open `frontend/index.html` in your browser or run it using **VS Code Live Server
 
 | Endpoint | Method | Description | Security Level |
 | :--- | :--- | :--- | :--- |
+| `/api/ai/chat` | `POST` | Process AI assistant queries | Public |
 | `/api/auth/signup` | `POST` | Register user & send OTP email | Public |
 | `/api/auth/verify-otp` | `POST` | Verify OTP & activate account | Public |
 | `/api/auth/login` | `POST` | Authenticate user & issue JWT | Public |
