@@ -95,3 +95,18 @@ form.addEventListener("submit",async(e)=>{
     }
 
 });
+
+// Google Login Demo Notice
+const googleBtn = document.querySelector(".google-btn");
+
+if(googleBtn){
+
+    googleBtn.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        showToast("ℹ️ Google Sign-In is in demo mode. Please log in with your email & password.", "error");
+
+    });
+
+}
