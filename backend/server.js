@@ -10,6 +10,7 @@ const bookingRoutes = require("./routes/bookingRoutes");
 const liveStatusRoutes = require("./routes/liveStatusRoutes");
 const pnrRoutes = require("./routes/pnrRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const aiRoutes = require("./routes/aiRoutes");
 
 dotenv.config();
 
@@ -45,6 +46,8 @@ app.use("/api/live-status", liveStatusRoutes);
 app.use("/api/pnr", pnrRoutes);
 
 app.use("/api/admin", adminRoutes);
+
+app.use("/api/ai", aiRoutes);
 
 // Test route
 app.get("/", (req, res) => {
