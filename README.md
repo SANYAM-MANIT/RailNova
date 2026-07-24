@@ -5,20 +5,22 @@
   <img src="https://img.shields.io/badge/Node.js-v20+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
   <img src="https://img.shields.io/badge/Express.js-Backend-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js" />
   <img src="https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+  <img src="https://img.shields.io/badge/Security-JWT_%26_Bcrypt-red?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="Security" />
   <img src="https://img.shields.io/badge/Brevo_API-Transactional_Emails-0092FF?style=for-the-badge&logo=sendinblue&logoColor=white" alt="Brevo API" />
   <img src="https://img.shields.io/badge/Deployment-Render_%26_Vercel-000000?style=for-the-badge&logo=render&logoColor=white" alt="Deployment" />
 </p>
 
 <p align="center">
-  <b>A feature-packed full-stack web application for seamless online train booking, automated ticket & PNR generation, transactional email notifications, and administrative railway analytics.</b>
+  <b>A feature-packed full-stack web application for seamless online train booking, automated ticket & PNR generation, transactional email notifications, enterprise security, and administrative railway analytics.</b>
 </p>
 
 <p align="center">
   <a href="#-key-features">Key Features</a> •
+  <a href="#-security--data-protection">Security</a> •
   <a href="#-system-architecture">Architecture</a> •
   <a href="#-technology-stack">Tech Stack</a> •
   <a href="#-installation--setup">Setup Guide</a> •
-  <a href="#-api-endpoints">API Docs</a> •
+  <a href="#-api-reference">API Docs</a> •
   <a href="#-developer">Developer</a>
 </p>
 
@@ -67,6 +69,51 @@ For administrators, **RailNova** delivers a powerful, protected analytics dashbo
 
 ---
 
+## 🛡️ Security & Data Protection
+
+Security is a foundational pillar of RailNova's architecture. The platform implements multi-layered security protocols across authentication, data storage, route authorization, and communication layers:
+
+```text
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │                         SECURITY & PROTECTION LAYERS                    │
+  ├─────────────────────────────────────────────────────────────────────────┤
+  │ 🔑 Authentication Layer  ──► JWT (JSON Web Tokens) Bearer Tokens       │
+  │ 🔒 Password Security     ──► Bcrypt.js Hashing with Salt Rounds (10)   │
+  │ 📧 Identity Verification ──► 6-Digit Time-Sensitive OTP via Email       │
+  │ 🛡️ Authorization Guard  ──► Middleware-Enforced Role Checks (RBAC)    │
+  │ 🌐 Input Protection      ──► Email & Payload Validation (validator.js) │
+  │ 🔐 Secret Isolation      ──► Environment Variables & .gitignore Policy │
+  └─────────────────────────────────────────────────────────────────────────┘
+```
+
+### 1. 🔑 Stateless Token Authentication (JWT)
+* Upon login, authenticated users receive a signed **JSON Web Token (JWT)** containing non-sensitive payload data.
+* Private endpoints (e.g. ticket booking, cancellations, viewing personal history) require a valid token passed via HTTP `Authorization: Bearer <token>` headers.
+* Prevents session hijacking and unauthorized API consumption.
+
+### 2. 🔒 Cryptographic Password Hashing (Bcrypt.js)
+* Passwords are never stored in plain text in the database.
+* Uses **Bcrypt.js** with salt factor `10` to hash user credentials before persistence, protecting user accounts against dictionary and rainbow table attacks.
+
+### 3. 📧 Two-Step OTP Email Verification
+* Prevents spam bot accounts and fake user registrations.
+* Users must verify a 6-digit dynamic **One-Time Password (OTP)** sent to their verified email address before their account is activated or passwords are reset.
+* OTP tokens automatically expire after **5–10 minutes** to enforce security freshness.
+
+### 4. 🛡️ Role-Based Access Control (RBAC) & Middleware Guards
+* Admin endpoints (`/api/admin/*`) are protected by specialized authorization middleware (`adminMiddleware.js`).
+* Requests to administrative dashboards, system analytics, or train modification APIs are rejected with `403 Forbidden` if the requesting token lacks `isAdmin: true` credentials.
+
+### 5. 🌐 Input Validation & CORS Controls
+* Built-in server-side input validation using `validator.js` ensures emails, inputs, and parameters conform to strict formatting guidelines before processing.
+* **CORS (Cross-Origin Resource Sharing)** rules are configured on Express to restrict backend API access exclusively to trusted frontend domains.
+
+### 6. 🔐 Secret Management & API Protection
+* Sensitive keys (`MONGO_URI`, `JWT_SECRET`, `BREVO_API_KEY`, `EMAIL_PASS`) are isolated in server environment variables and excluded from source control via `.gitignore`.
+* Production emails are transmitted over **HTTPS (Port 443)** using Brevo API, eliminating unencrypted email transfers over open ports.
+
+---
+
 ## 🛠️ Technology Stack
 
 | Category | Technologies |
@@ -76,7 +123,8 @@ For administrators, **RailNova** delivers a powerful, protected analytics dashbo
 | **Database** | MongoDB Atlas, Mongoose ODM |
 | **Authentication** | JSON Web Tokens (JWT), Bcrypt.js (Password Hashing) |
 | **Transactional Email** | **Brevo REST API (HTTPS)** + **Nodemailer (Gmail SMTP Fallback)** |
-| **Utilities** | Axios, Cors, Dotenv, Validator |
+| **Security** | Express Authorization Middleware, RBAC Guards, Validator.js, CORS |
+| **Utilities** | Axios, Dotenv |
 | **Hosting** | Render (Backend API), Vercel (Frontend Client) |
 
 ---
@@ -111,7 +159,7 @@ RailNova/
 ├── 📁 backend/
 │   ├── 📁 config/        # Database Connection Configuration
 │   ├── 📁 controllers/   # Auth, Booking, Train, Admin Logic
-│   ├── 📁 middleware/    # JWT & Admin Authorization Guards
+│   ├── 📁 middleware/    # JWT & Admin Authorization Guards (Security)
 │   ├── 📁 models/        # Mongoose Data Schemas (User, Train, Booking)
 │   ├── 📁 routes/        # Express Route Handlers
 │   ├── 📁 utils/         # Dual Brevo/Nodemailer Mail Utility (sendEmail.js)
@@ -170,18 +218,18 @@ Open `frontend/index.html` in your browser or run it using **VS Code Live Server
 
 ## 🔗 Backend API Reference
 
-| Endpoint | Method | Description | Access |
+| Endpoint | Method | Description | Security Level |
 | :--- | :--- | :--- | :--- |
 | `/api/auth/signup` | `POST` | Register user & send OTP email | Public |
 | `/api/auth/verify-otp` | `POST` | Verify OTP & activate account | Public |
 | `/api/auth/login` | `POST` | Authenticate user & issue JWT | Public |
 | `/api/auth/forgot-password` | `POST` | Send password reset OTP | Public |
 | `/api/trains/search` | `GET` | Search trains by route & date | Public |
-| `/api/bookings/book` | `POST` | Book ticket, assign seats & send email | Private (JWT) |
-| `/api/bookings/my-bookings`| `GET` | Fetch user booking history | Private (JWT) |
-| `/api/bookings/cancel/:id` | `DELETE`| Cancel booking & release seat | Private (JWT) |
+| `/api/bookings/book` | `POST` | Book ticket, assign seats & send email | Private (JWT Required) |
+| `/api/bookings/my-bookings`| `GET` | Fetch user booking history | Private (JWT Required) |
+| `/api/bookings/cancel/:id` | `DELETE`| Cancel booking & release seat | Private (JWT Required) |
 | `/api/pnr/:pnr` | `GET` | Retrieve booking status by PNR | Public |
-| `/api/admin/stats` | `GET` | System dashboard metrics & revenue | Admin |
+| `/api/admin/stats` | `GET` | System dashboard metrics & revenue | Protected (Admin RBAC) |
 
 ---
 
