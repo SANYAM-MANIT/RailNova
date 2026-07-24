@@ -1,816 +1,202 @@
-# 🚆 RailNova
-
-### 🎫 Online Railway Reservation & Management System
+# 🚆 RailNova — Next-Gen Railway Reservation & Management System
 
 <p align="center">
-  <b>🚆 Your Journey Begins Here</b>
+  <img src="https://img.shields.io/badge/RailNova-v1.0.0-2563eb?style=for-the-badge&logo=train&logoColor=white" alt="RailNova Version" />
+  <img src="https://img.shields.io/badge/Node.js-v20+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Express.js-Backend-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js" />
+  <img src="https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+  <img src="https://img.shields.io/badge/Brevo_API-Transactional_Emails-0092FF?style=for-the-badge&logo=sendinblue&logoColor=white" alt="Brevo API" />
+  <img src="https://img.shields.io/badge/Deployment-Render_%26_Vercel-000000?style=for-the-badge&logo=render&logoColor=white" alt="Deployment" />
 </p>
 
 <p align="center">
-  RailNova is a full-stack railway reservation and management system that provides users with a complete digital ticket booking experience and administrators with a centralized dashboard to manage and monitor the railway system.
+  <b>A feature-packed full-stack web application for seamless online train booking, automated ticket & PNR generation, transactional email notifications, and administrative railway analytics.</b>
 </p>
 
 <p align="center">
-
-![Node.js](https://img.shields.io/badge/Node.js-Backend-green?logo=node.js)
-![Express.js](https://img.shields.io/badge/Express.js-REST_API-black?logo=express)
-![MongoDB](https://img.shields.io/badge/MongoDB-Database-green?logo=mongodb)
-![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-yellow?logo=javascript)
-![JWT](https://img.shields.io/badge/JWT-Authentication-purple?logo=jsonwebtokens)
-![GitHub](https://img.shields.io/badge/GitHub-Repository-black?logo=github)
-
+  <a href="#-key-features">Key Features</a> •
+  <a href="#-system-architecture">Architecture</a> •
+  <a href="#-technology-stack">Tech Stack</a> •
+  <a href="#-installation--setup">Setup Guide</a> •
+  <a href="#-api-endpoints">API Docs</a> •
+  <a href="#-developer">Developer</a>
 </p>
 
 ---
 
-## 📌 About RailNova
+## 🌟 Overview
 
-**RailNova** is a full-stack railway reservation web application developed to provide a complete railway ticket booking experience through a simple and user-friendly interface.
+**RailNova** digitizes the entire railway reservation lifecycle. It empowers passengers with real-time train search, coach and berth preference selection, secure OTP email verification, simulated payments, auto-assigned seat allocations, automated PNR generation, and digital ticket management.
 
-The system is divided into two major sections:
+For administrators, **RailNova** delivers a powerful, protected analytics dashboard featuring system statistics, revenue metrics, live user monitoring, and train inventory management.
 
-### 👤 User Portal
-
-The User Portal allows passengers to register, verify their email, securely log in, search for trains, enter passenger details, select coach and berth preferences, complete a simulated payment, and receive a confirmed railway ticket.
-
-Users can also manage their bookings, check PNR status, view ticket details, check live train status, and cancel their tickets.
-
-### 👨‍💼 Admin Panel
-
-The Admin Panel provides administrators with a centralized platform to monitor and manage the railway reservation system.
-
-The dashboard provides important statistics such as users, bookings, trains, and revenue. It also uses charts and visual representations to make system activity easier to understand.
-
-The application also implements security features such as JWT authentication, password hashing, OTP verification, protected routes, authentication middleware, and admin authorization.
-
----
-
-# ✨ Main Features
-
-| Feature                        | Description                                                 |
-| ------------------------------ | ----------------------------------------------------------- |
-| 🔐 **User Authentication**     | Secure registration and login system for users              |
-| 📧 **Email OTP Verification**  | New users verify their email before completing registration |
-| 🔑 **JWT Authentication**      | Token-based authentication for secure user sessions         |
-| 🔒 **Password Hashing**        | Passwords are securely hashed using bcrypt                  |
-| 🛡️ **Protected Routes**       | Private APIs are accessible only to authenticated users     |
-| 👨‍💼 **Admin Panel**          | Dedicated dashboard for administrators                      |
-| 📊 **Admin Charts**            | Visual representation of system statistics                  |
-| 👥 **User Statistics**         | Monitor registered users through the admin dashboard        |
-| 🎫 **Booking Statistics**      | Monitor total and booking-related information               |
-| 🚆 **Train Management**        | Manage and monitor train information                        |
-| 💰 **Revenue Statistics**      | Display booking and revenue-related data                    |
-| 🔎 **Train Search**            | Search for trains based on journey requirements             |
-| 🎫 **Ticket Booking**          | Complete railway ticket booking workflow                    |
-| 💺 **Coach & Seat Allocation** | Automatically assign coach and seat numbers                 |
-| 🛏️ **Berth Preference**       | Allow passengers to select berth preferences                |
-| 💳 **Payment System**          | Simulated payment process for ticket confirmation           |
-| 🧾 **PNR Generation**          | Automatically generate a unique PNR for every booking       |
-| 📩 **Confirmation Email**      | Send detailed ticket confirmation emails                    |
-| 🔎 **PNR Status**              | Search ticket information using PNR                         |
-| 📋 **My Bookings**             | View all bookings made by the logged-in user                |
-| ❌ **Ticket Cancellation**      | Cancel confirmed tickets and update available seats         |
-| 🚉 **Live Train Status**       | Access train status information                             |
-| 🌐 **REST APIs**               | Backend functionality exposed through RESTful APIs          |
-| 🗄️ **MongoDB Database**       | Store users, trains, bookings, and application data         |
-
----
-
-# 👤 User Portal
-
-The User Portal is designed to provide passengers with a complete railway reservation experience.
-
-## 📝 1. User Registration
-
-New users can create an account by providing their required information.
-
-The registration system is integrated with email OTP verification to ensure that the provided email address is valid.
-
-```text
-📝 Create Account
-       ↓
-📧 OTP Generated
-       ↓
-📩 OTP Sent to Email
-       ↓
-🔢 Enter OTP
-       ↓
-✅ Email Verified
-       ↓
-👤 Account Created
+```
+       ┌─────────────────────────────────────────────────────────┐
+       │                   🚆 RAILNOVA PLATFORM                  │
+       └────────────────────────────┬────────────────────────────┘
+                                    │
+           ┌────────────────────────┴────────────────────────┐
+           ▼                                                 ▼
+  👤 Passenger Portal                             👨‍💼 Admin Panel
+  ├── 🔍 Train Search & Availability              ├── 📊 Live System Analytics
+  ├── 📧 Dual-Provider Email Verification         ├── 💰 Revenue & Booking Trends
+  ├── 💺 Dynamic Coach & Seat Allocation          ├── 🚆 Train Inventory Control
+  ├── 💳 Simulated Payment & PNR Generation       └── 🔐 Restricted Access Guard
+  ├── 📩 PDF-Style Ticket Email Delivery
+  └── ❌ Real-Time Ticket Cancellation
 ```
 
 ---
 
-## 🔐 2. Secure Login
+## 🚀 Key Features
 
-Registered users can securely log in to their accounts.
+### 👤 Passenger Portal
+* **🔐 Secure Authentication & Email OTP**: Complete registration flow backed by **Brevo REST API** & **Nodemailer SMTP** for fast OTP delivery.
+* **🔎 Smart Train Search**: Search trains by departure/destination, date, and availability status.
+* **💺 Intelligent Seat & Coach Allocation**: Automatic assignment of coaches (`S1`, `B1`, `A1`, `H1`) and berths (`Lower`, `Middle`, `Upper`, `Side Lower`, `Side Upper`).
+* **💳 Simulated Payment Gateway**: Instant ticket confirmation with transaction ID generation and fare summary.
+* **🧾 10-Digit PNR System**: Unique PNR generation for seamless ticket tracking and status verification.
+* **📩 Instant Ticket Confirmation Email**: Automatic email dispatched directly to the passenger containing full journey details.
+* **📋 Booking Management**: View active and historical bookings with one-click cancellation and seat restoration.
 
-After successful authentication, the backend generates a JWT token that is used to authorize requests to protected APIs.
-
-The token is stored on the frontend and sent with protected API requests using the Authorization header.
-
-This prevents unauthorized users from accessing private application functionality.
-
----
-
-## 🚆 3. Train Search
-
-Users can search for available trains based on their journey.
-
-Train information includes:
-
-| Information        | Description               |
-| ------------------ | ------------------------- |
-| 🚆 Train Name      | Name of the train         |
-| 🔢 Train Number    | Unique train number       |
-| 📍 From            | Starting station          |
-| 📍 To              | Destination station       |
-| 🕐 Departure       | Departure time            |
-| 🕐 Arrival         | Arrival time              |
-| 💺 Available Seats | Current seat availability |
-| 💰 Fare            | Ticket fare               |
+### 👨‍💼 Admin Dashboard
+* **📊 Visual System Analytics**: Graphical breakdown of revenue, total passengers, active bookings, and train count.
+* **🚆 Train Inventory Control**: Add, update, and manage train schedules, routes, fares, and seat capacities.
+* **👥 User & Booking Audit**: Live monitoring of user activity and booking transactions.
+* **🛡️ Protected Admin Routes**: Middleware-enforced security restricting administrative features to verified admins.
 
 ---
 
-## 🎫 4. Ticket Booking
+## 🛠️ Technology Stack
 
-After selecting a train, users can proceed to the ticket booking process.
-
-Passengers can provide:
-
-* 👤 Passenger Name
-* 🎂 Age
-* ⚧️ Gender
-* 📱 Mobile Number
-* 📧 Email Address
-* 🚆 Coach Type
-* 🛏️ Berth Preference
-* 💰 Fare Information
-* 🎟️ Concession Details
-
-Once the booking is completed successfully, the system creates a booking record in MongoDB.
+| Category | Technologies |
+| :--- | :--- |
+| **Frontend** | HTML5, CSS3 (Modern Glassmorphism Design), JavaScript (ES6+), Fetch API |
+| **Backend** | Node.js, Express.js (REST API Architecture) |
+| **Database** | MongoDB Atlas, Mongoose ODM |
+| **Authentication** | JSON Web Tokens (JWT), Bcrypt.js (Password Hashing) |
+| **Transactional Email** | **Brevo REST API (HTTPS)** + **Nodemailer (Gmail SMTP Fallback)** |
+| **Utilities** | Axios, Cors, Dotenv, Validator |
+| **Hosting** | Render (Backend API), Vercel (Frontend Client) |
 
 ---
 
-## 💺 5. Coach & Seat Allocation
+## ⚡ Email Service Architecture (Dual Provider)
 
-RailNova automatically assigns coach and seat information to confirmed bookings.
-
-The coach is generated according to the selected coach type.
-
-| Coach Type  | Example Coach |
-| ----------- | ------------- |
-| 🛏️ Sleeper | S1, S2, S3... |
-| 🛌 3A       | B1, B2...     |
-| 🛌 2A       | A1, A2...     |
-| 👑 1A       | H1            |
-| 🚆 Other    | C1, C2...     |
-
-A seat number is also automatically generated for the confirmed ticket.
-
----
-
-## 💳 6. Payment Process
-
-RailNova contains a simulated payment workflow for demonstration purposes.
-
-The user selects a payment method and proceeds with the payment process.
-
-After successful payment:
+RailNova features a production-ready dual email provider system engineered to eliminate cloud host port-blocking issues (e.g. Render / Heroku outbound SMTP restrictions):
 
 ```text
-💳 Payment Successful
-        ↓
-🎫 Booking Created
-        ↓
-🧾 PNR Generated
-        ↓
-💺 Coach Assigned
-        ↓
-💺 Seat Assigned
-        ↓
-📩 Confirmation Email
-```
-
-The system stores:
-
-* Payment method
-* Payment status
-* Transaction ID
-* Fare paid
-* Original fare
-* Discount
-* Concession details
-
-> ⚠️ The current payment system is simulated and does not process real financial transactions.
-
----
-
-# 🧾 Ticket & PNR System
-
-After a successful booking, RailNova generates a unique **10-digit PNR number**.
-
-The confirmed booking contains:
-
-| Ticket Information | Details                       |
-| ------------------ | ----------------------------- |
-| 🧾 PNR             | Unique booking identifier     |
-| 🚆 Train           | Train name and number         |
-| 🛤️ Route          | Source and destination        |
-| 📅 Journey Date    | Scheduled journey date        |
-| 🕐 Departure       | Departure time                |
-| 🕐 Arrival         | Arrival time                  |
-| 👤 Passenger       | Passenger information         |
-| 🚉 Coach           | Assigned coach                |
-| 💺 Seat            | Assigned seat                 |
-| 🛏️ Berth          | Selected berth preference     |
-| 💰 Fare            | Amount paid                   |
-| 💳 Payment         | Payment status                |
-| 🔢 Transaction ID  | Unique transaction identifier |
-| 📌 Status          | Confirmed or Cancelled        |
-
-Users can use their PNR number to retrieve their booking details.
-
----
-
-# 📩 Email Confirmation
-
-RailNova provides automated email notifications after important user actions.
-
-## 📧 OTP Email
-
-During registration, an OTP is sent to the user's email address.
-
-This verifies that the user has access to the provided email account.
-
-## 🎫 Booking Confirmation Email
-
-After a successful ticket booking, the system sends a detailed confirmation email.
-
-The email contains:
-
-* 🧾 PNR Number
-* 🚆 Train Name
-* 🔢 Train Number
-* 🛤️ Journey Route
-* 📅 Journey Date
-* 🕐 Departure Time
-* 🕐 Arrival Time
-* 👤 Passenger Name
-* 🎂 Passenger Age
-* ⚧️ Gender
-* 🚉 Coach Number
-* 💺 Seat Number
-* 🛏️ Berth
-* 💰 Fare Paid
-* 💳 Payment Status
-* 🔢 Transaction ID
-* 🪪 Government ID Travel Reminder
-
-The email provides passengers with all important ticket information in one place.
-
----
-
-# 📋 My Bookings
-
-Authenticated users can access their booking history.
-
-The **My Bookings** section displays tickets associated with the currently logged-in user.
-
-Users can view:
-
-* 🎫 Booking details
-* 🧾 PNR number
-* 🚆 Train information
-* 🛤️ Journey route
-* 📅 Journey date
-* 👤 Passenger information
-* 🚉 Coach number
-* 💺 Seat number
-* 🛏️ Berth
-* 💰 Fare
-* 💳 Payment status
-* 📌 Booking status
-
-Bookings are retrieved from MongoDB using the authenticated user's ID.
-
----
-
-# ❌ Ticket Cancellation
-
-Users can cancel their confirmed tickets.
-
-When a booking is cancelled:
-
-```text
-🎫 Confirmed Ticket
-        ↓
-❌ User Cancels Ticket
-        ↓
-📌 Status → Cancelled
-        ↓
-💺 Available Seats + 1
-```
-
-The system automatically increases the available seat count of the associated train.
-
-The booking remains stored in the database with its status changed to **Cancelled**.
-
----
-
-# 🚉 Live Train Status
-
-RailNova includes a dedicated Live Train Status section.
-
-Users can access train-related status information through the application.
-
-The feature provides a separate interface for accessing live-status functionality without affecting the ticket booking workflow.
-
----
-
-# 👨‍💼 Admin Panel
-
-RailNova provides a separate **Admin Panel** for administrators.
-
-The Admin Panel is protected using authentication and authorization mechanisms so that regular users cannot access administrative functionality.
-
-The Admin Dashboard provides a centralized view of the complete railway reservation system.
-
----
-
-## 📊 Admin Dashboard
-
-The dashboard displays important system information using statistics and charts.
-
-| Dashboard Section   | Purpose                                         |
-| ------------------- | ----------------------------------------------- |
-| 👥 **Users**        | Monitor registered users                        |
-| 🎫 **Bookings**     | Monitor ticket bookings                         |
-| 🚆 **Trains**       | View and manage train information               |
-| 💰 **Revenue**      | Monitor booking revenue                         |
-| 📈 **Charts**       | Visualize important system data                 |
-| 📊 **Statistics**   | Get a quick overview of system activity         |
-| 🔐 **Admin Access** | Restrict dashboard to authorized administrators |
-
----
-
-## 📈 Admin Charts
-
-Charts make it easier for administrators to understand application activity.
-
-The dashboard can visually represent information such as:
-
-* 👥 User statistics
-* 🎫 Booking statistics
-* 🚆 Train-related data
-* 💰 Revenue information
-* 📊 Overall system activity
-
-Instead of viewing only raw numbers, administrators can use graphical representations to quickly understand trends and system performance.
-
----
-
-## 🚆 Train Management
-
-The Admin Panel also provides functionality related to train management.
-
-Administrators can work with train records containing information such as:
-
-* Train name
-* Train number
-* Source
-* Destination
-* Departure
-* Arrival
-* Fare
-* Available seats
-
-This allows the administrator to maintain the train data used by the user-facing train search and booking system.
-
----
-
-# 🛡️ Security Architecture
-
-Security has been implemented across both the frontend and backend.
-
-| Security Layer                    | Implementation                    |
-| --------------------------------- | --------------------------------- |
-| 🔑 **Authentication**             | JWT-based authentication          |
-| 🔒 **Password Security**          | bcrypt password hashing           |
-| 📧 **Email Verification**         | OTP-based verification            |
-| 🛡️ **Authentication Middleware** | Validates user tokens             |
-| 👨‍💼 **Admin Authorization**     | Restricts admin functionality     |
-| 🚫 **Protected APIs**             | Prevent unauthorized API access   |
-| 🔐 **Environment Variables**      | Protect sensitive configuration   |
-| 🌐 **CORS**                       | Controls allowed frontend origins |
-
----
-
-## 🔑 JWT Authentication
-
-After a successful login, the backend generates a JSON Web Token.
-
-The frontend uses this token when accessing protected endpoints.
-
-Example:
-
-```text
-👤 User Login
-      ↓
-🔐 Credentials Verified
-      ↓
-🎟️ JWT Token Generated
-      ↓
-💾 Token Stored
-      ↓
-🌐 Token Sent with API Requests
-      ↓
-🛡️ Backend Validates Token
-      ↓
-✅ Access Granted
-```
-
-This ensures that protected operations can only be performed by authenticated users.
-
----
-
-## 🔒 Password Security
-
-User passwords are not stored directly in plain text.
-
-The application uses **bcrypt** to hash passwords before storing them in the database.
-
-This provides an additional layer of protection for user credentials.
-
----
-
-## 🛡️ Protected Routes
-
-Authentication middleware is used to protect APIs that require a logged-in user.
-
-Examples include:
-
-* 🎫 Booking tickets
-* 📋 Viewing personal bookings
-* ❌ Cancelling tickets
-* 👨‍💼 Admin operations
-
-The backend verifies the JWT token before allowing access to protected resources.
-
----
-
-## 👨‍💼 Admin Authorization
-
-Administrative APIs are separated from normal user functionality.
-
-Only authorized administrators can access:
-
-* Admin Dashboard
-* Admin Statistics
-* Charts
-* Train Management
-* Administrative Operations
-
-This prevents normal users from accessing sensitive administrative functionality.
-
----
-
-# 🏗️ System Architecture
-
-```text
-                         🚆 RAILNOVA
-                              │
-               ┌──────────────┴──────────────┐
-               │                             │
-               ▼                             ▼
-        👤 USER PORTAL                 👨‍💼 ADMIN PANEL
-               │                             │
-               │                             │
-               └──────────────┬──────────────┘
-                              │
-                              ▼
-                       🌐 REST APIs
-                              │
-                              ▼
-                   ⚙️ NODE.JS + EXPRESS
-                              │
-             ┌────────────────┼────────────────┐
-             │                │                │
-             ▼                ▼                ▼
-       🗄️ MONGODB         🔐 AUTH          📧 EMAIL
-        DATABASE          JWT + bcrypt      SERVICE
-             │
-             ▼
-       📊 ADMIN ANALYTICS
-        & CHARTS
+               ┌───────────────────────────────┐
+               │    Trigger Email Notification  │
+               └───────────────┬───────────────┘
+                               │
+                               ▼
+                Is BREVO_API_KEY Configured?
+                   /                       \
+                 YES                        NO
+                 /                           \
+                ▼                             ▼
+   🚀 Brevo REST API (Port 443)    📧 Nodemailer Gmail SMTP (Port 465/587)
+   - Bypasses Cloud Port Block     - Automatic Password Sanitization
+   - Fast & Reliable               - Secure TLS Connection
 ```
 
 ---
 
-# 🔄 Complete Booking Workflow
-
-```text
-📝 User Registration
-        │
-        ▼
-📧 Email OTP Verification
-        │
-        ▼
-🔑 Secure Login
-        │
-        ▼
-🔎 Search Trains
-        │
-        ▼
-🚆 Select Train
-        │
-        ▼
-👤 Enter Passenger Details
-        │
-        ▼
-🚉 Select Coach
-        │
-        ▼
-🛏️ Select Berth Preference
-        │
-        ▼
-💳 Simulated Payment
-        │
-        ▼
-✅ Booking Confirmed
-        │
-        ├──────────────► 🧾 PNR Generated
-        │
-        ├──────────────► 🚉 Coach Assigned
-        │
-        ├──────────────► 💺 Seat Assigned
-        │
-        └──────────────► 📩 Email Confirmation
-```
-
----
-
-# 🏗️ Technology Stack
-
-| Category                 | Technology          | Purpose                                     |
-| ------------------------ | ------------------- | ------------------------------------------- |
-| 🎨 **Frontend**          | HTML5               | Web page structure                          |
-| 🎨 **Styling**           | CSS3                | User interface and responsive design        |
-| ⚡ **Frontend Logic**     | JavaScript          | Dynamic functionality and API communication |
-| ⚙️ **Backend Runtime**   | Node.js             | Server-side JavaScript runtime              |
-| 🌐 **Backend Framework** | Express.js          | REST API development                        |
-| 🗄️ **Database**         | MongoDB             | Application data storage                    |
-| 🔗 **ODM**               | Mongoose            | MongoDB database interaction                |
-| 🔐 **Authentication**    | JWT                 | Token-based authentication                  |
-| 🔒 **Password Security** | bcrypt              | Password hashing                            |
-| 📧 **Email**             | Email Service       | OTP and booking confirmation                |
-| 🌐 **HTTP Client**       | Axios               | Backend HTTP requests                       |
-| 🔄 **API Communication** | Fetch API           | Frontend-backend communication              |
-| 🌍 **CORS**              | CORS Middleware     | Cross-origin request management             |
-| 🔑 **Configuration**     | dotenv              | Environment variable management             |
-| 📊 **Dashboard**         | Charts & Statistics | Admin data visualization                    |
-| 🧪 **API Testing**       | Postman             | Testing backend APIs                        |
-| 📦 **Version Control**   | Git & GitHub        | Source code management                      |
-
----
-
-# 🔗 Backend API Modules
-
-| API Endpoint          | Functionality                                  |
-| --------------------- | ---------------------------------------------- |
-| 🔐 `/api/auth`        | User registration, login and OTP verification  |
-| 🚆 `/api/trains`      | Train search and train-related operations      |
-| 🎫 `/api/bookings`    | Ticket booking, user bookings and cancellation |
-| 🔎 `/api/pnr`         | PNR search and ticket status                   |
-| 🚉 `/api/live-status` | Live train status functionality                |
-| 👨‍💼 `/api/admin`    | Admin dashboard and administrative operations  |
-
----
-
-# 📁 Project Structure
+## 📁 Project Structure
 
 ```text
 RailNova/
 │
 ├── 📁 backend/
-│   │
-│   ├── 📁 config/
-│   │   └── db.js
-│   │
-│   ├── 📁 controllers/
-│   │   ├── authController.js
-│   │   ├── bookingController.js
-│   │   └── ...
-│   │
-│   ├── 📁 middleware/
-│   │   └── authMiddleware.js
-│   │
-│   ├── 📁 models/
-│   │   ├── User.js
-│   │   ├── Train.js
-│   │   └── Booking.js
-│   │
-│   ├── 📁 routes/
-│   │   ├── authRoutes.js
-│   │   ├── trainRoutes.js
-│   │   ├── bookingRoutes.js
-│   │   ├── pnrRoutes.js
-│   │   ├── liveStatusRoutes.js
-│   │   └── adminRoutes.js
-│   │
-│   ├── 📁 utils/
-│   │   └── sendEmail.js
-│   │
-│   ├── server.js
-│   ├── package.json
-│   └── .env
+│   ├── 📁 config/        # Database Connection Configuration
+│   ├── 📁 controllers/   # Auth, Booking, Train, Admin Logic
+│   ├── 📁 middleware/    # JWT & Admin Authorization Guards
+│   ├── 📁 models/        # Mongoose Data Schemas (User, Train, Booking)
+│   ├── 📁 routes/        # Express Route Handlers
+│   ├── 📁 utils/         # Dual Brevo/Nodemailer Mail Utility (sendEmail.js)
+│   ├── 📄 server.js      # Main Application Entry Point
+│   └── 📄 package.json   # Node Dependencies
 │
-├── 📁 frontend/
-│   │
-│   ├── 📄 index.html
-│   ├── 📄 login.html
-│   ├── 📄 signup.html
-│   ├── 📄 train-search.html
-│   ├── 📄 book-ticket.html
-│   ├── 📄 payment.html
-│   ├── 📄 ticket.html
-│   ├── 📄 pnr.html
-│   ├── 📄 live-status.html
-│   ├── 📄 admin.html
-│   │
-│   ├── 📁 css/
-│   └── 📁 js/
-│
-├── 📄 README.md
-└── 📄 .gitignore
+└── 📁 frontend/          # Responsive User Interface (HTML, CSS, JS)
+    ├── 📄 index.html     # Landing & Train Search
+    ├── 📄 login.html     # User Login
+    ├── 📄 signup.html    # User Registration & OTP Verification
+    ├── 📄 ticket.html    # Digital Ticket Display
+    ├── 📄 pnr.html       # PNR Search & Status
+    └── 📄 admin.html     # Administrator Analytics Dashboard
 ```
 
 ---
 
-# ⚙️ Installation & Setup
+## ⚙️ Installation & Setup
 
-## 1️⃣ Clone Repository
-
+### 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/SANYAM-MANIT/RailNova.git
-```
-
-## 2️⃣ Navigate to Project
-
-```bash
 cd RailNova
 ```
 
-## 3️⃣ Install Backend Dependencies
-
+### 2️⃣ Configure Backend
 ```bash
 cd backend
 npm install
 ```
 
-## 4️⃣ Configure Environment Variables
-
-Create a `.env` file inside the `backend` folder.
-
+Create a `.env` file inside the `backend` folder:
 ```env
 PORT=8080
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-EMAIL_USER=your_email
-EMAIL_PASS=your_email_password
+MONGO_URI=your_mongodb_atlas_connection_string
+JWT_SECRET=your_super_secret_jwt_key
+
+# Transactional Email Setup
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASS=your_gmail_app_password
+
+# Brevo API (Recommended for Cloud Production Deployment)
+BREVO_API_KEY=your_brevo_api_key
 ```
 
-Keep sensitive values private and never commit the `.env` file to GitHub.
-
-## 5️⃣ Start Backend
-
+### 3️⃣ Run Locally
 ```bash
-npm start
+npm run dev
 ```
+The server will start at `http://localhost:8080`.
 
-The backend will start on:
-
-```text
-https://railnova.onrender.com
-```
-
-## 6️⃣ Run Frontend
-
-Open the `frontend` folder using a local development server such as **VS Code Live Server**.
-
-The frontend communicates with the Node.js and Express backend through REST APIs.
+### 4️⃣ Open Frontend
+Open `frontend/index.html` in your browser or run it using **VS Code Live Server**.
 
 ---
 
-# 🔒 Environment Variables
+## 🔗 Backend API Reference
 
-RailNova uses environment variables to protect sensitive configuration.
-
-The `.gitignore` file should contain:
-
-```text
-node_modules/
-.env
-```
-
-The following information should remain private:
-
-* 🔐 MongoDB connection string
-* 🔑 JWT secret
-* 📧 Email credentials
-* 🔒 API keys
-* ⚙️ Server configuration
+| Endpoint | Method | Description | Access |
+| :--- | :--- | :--- | :--- |
+| `/api/auth/signup` | `POST` | Register user & send OTP email | Public |
+| `/api/auth/verify-otp` | `POST` | Verify OTP & activate account | Public |
+| `/api/auth/login` | `POST` | Authenticate user & issue JWT | Public |
+| `/api/auth/forgot-password` | `POST` | Send password reset OTP | Public |
+| `/api/trains/search` | `GET` | Search trains by route & date | Public |
+| `/api/bookings/book` | `POST` | Book ticket, assign seats & send email | Private (JWT) |
+| `/api/bookings/my-bookings`| `GET` | Fetch user booking history | Private (JWT) |
+| `/api/bookings/cancel/:id` | `DELETE`| Cancel booking & release seat | Private (JWT) |
+| `/api/pnr/:pnr` | `GET` | Retrieve booking status by PNR | Public |
+| `/api/admin/stats` | `GET` | System dashboard metrics & revenue | Admin |
 
 ---
 
-# 📚 Project Learning Outcomes
+## 👨‍💻 Author & Credits
 
-Building RailNova provided practical experience in developing a complete full-stack application.
+**Sanyam Jain**  
+🎓 *B.Tech – Computer Science & Engineering*  
+🏫 **MANIT Bhopal (Maulana Azad National Institute of Technology)**
 
-### 💻 Frontend Development
-
-* HTML and CSS based UI development
-* JavaScript DOM manipulation
-* Form handling
-* Local storage
-* API integration
-* Dynamic page updates
-
-### ⚙️ Backend Development
-
-* Node.js server development
-* Express.js REST APIs
-* Middleware implementation
-* Controller and route architecture
-* Error handling
-* CORS configuration
-
-### 🗄️ Database Management
-
-* MongoDB database design
-* Mongoose models
-* CRUD operations
-* User and booking relationships
-* Train availability management
-
-### 🔐 Security
-
-* JWT authentication
-* Password hashing
-* OTP verification
-* Protected routes
-* Authentication middleware
-* Admin authorization
-* Environment variable management
-
-### 📊 Admin & Analytics
-
-* Admin dashboard development
-* System statistics
-* Data visualization
-* Charts
-* Train management
-* Booking monitoring
-
-### 🌐 Real-World Application Concepts
-
-* Railway reservation workflow
-* Ticket lifecycle
-* PNR generation
-* Coach and seat allocation
-* Payment workflow
-* Email notification system
-* Ticket cancellation
-
----
-
-# 👨‍💻 Developer
-
-### **Sanyam Jain**
-
-🎓 **B.Tech – Computer Science & Engineering**
-🏫 **MANIT Bhopal**
-
-Interested in:
-
-> 💻 Full-Stack Web Development
-> ⚙️ Backend Development
-> 🔐 Web Security
-> 🧠 Data Structures & Algorithms
-
-### 🔗 GitHub
-
-👉 **https://github.com/SANYAM-MANIT**
+<p align="left">
+  <a href="https://github.com/SANYAM-MANIT"><img src="https://img.shields.io/badge/GitHub-SANYAM--MANIT-181717?style=flat&logo=github" alt="GitHub" /></a>
+</p>
 
 ---
 
 <p align="center">
-
-# 🚆 RailNova
-
-### Your Journey Begins Here ❤️
-
-**Built with ❤️ by Sanyam Jain | MANIT Bhopal**
-
+  <b>⭐ If you like this project, please consider giving it a star on GitHub! ⭐</b>
 </p>
