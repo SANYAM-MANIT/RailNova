@@ -16,7 +16,7 @@ body{
 
 .container{
     width:100%;
-    max-width:700px;
+    max-width:750px;
     background:#fff;
     border-radius:18px;
     padding:35px;
@@ -45,6 +45,61 @@ h1{
 .train-info p{
     margin:8px 0;
     color:#444;
+}
+
+.passenger-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.passenger-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.passenger-card-header h3 {
+    font-size: 16px;
+    color: #1e3a8a;
+    margin: 0;
+}
+
+.remove-passenger-btn {
+    background: #ef4444 !important;
+    color: #fff !important;
+    border: none;
+    padding: 6px 14px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    cursor: pointer;
+    width: auto !important;
+    margin-top: 0 !important;
+}
+
+.remove-passenger-btn:hover {
+    background: #dc2626 !important;
+}
+
+.add-passenger-btn {
+    background: #10b981 !important;
+    color: #fff !important;
+    border: none;
+    padding: 12px !important;
+    border-radius: 10px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+    margin-bottom: 20px !important;
+}
+
+.add-passenger-btn:hover {
+    background: #059669 !important;
 }
 
 .input-box{
@@ -95,34 +150,21 @@ button:hover{
 }
 
 @media(max-width:700px){
-
     .container{
         padding:20px;
     }
-
 }
 
-
 .warning-box{
-
     display:none;
-
     margin-top:18px;
-
     padding:16px;
-
     background:#fff8db;
-
     border-left:5px solid #f59e0b;
-
     color:#7c4a03;
-
     border-radius:10px;
-
     font-size:14px;
-
     line-height:1.6;
-
 }
 
 .form-group{
@@ -153,4 +195,3 @@ button:hover{
     border-color:#2563eb;
     box-shadow:0 0 0 4px rgba(37,99,235,.15);
 }
-

@@ -70,7 +70,10 @@ const bookTicket = async (req, res) => {
             originalFare,
             discount,
             concessionType,
-            paymentMethod
+            paymentMethod,
+            quota,
+            tatkalCharges,
+            passengers: incomingPassengers
 
         } = req.body;
 
@@ -84,17 +87,43 @@ const bookTicket = async (req, res) => {
 
         }
 
-        if (train.availableSeats <= 0) {
+        // Determine passenger list (support multi-passenger group bookings)
+        let passengerList = [];
+        if (Array.isArray(incomingPassengers) && incomingPassengers.length > 0) {
+            passengerList = incomingPassengers;
+        } else {
+            passengerList = [{ name: passengerName, age: Number(age), gender, berth }];
+        }
+
+        const passCount = passengerList.length;
+
+        if (train.availableSeats < passCount) {
 
             return res.status(400).json({
-                message: "No seats available"
+                message: `Not enough seats available! Only ${train.availableSeats} seat(s) remaining.`
             });
 
         }
 
-        train.availableSeats--;
+        train.availableSeats -= passCount;
 
         await train.save();
+
+        const assignedCoach = generateCoach(coach);
+        const startSeat = generateSeat();
+
+        const assignedPassengers = passengerList.map((p, idx) => ({
+            name: p.name,
+            age: Number(p.age),
+            gender: p.gender,
+            berth: p.berth || berth || "Lower",
+            concessionType: p.concessionType || "None",
+            discount: p.discount || 0,
+            coachNumber: assignedCoach,
+            seatNumber: ((startSeat + idx - 1) % 72) + 1
+        }));
+
+        const primaryPassenger = assignedPassengers[0];
 
         const booking = await Booking.create({
 
@@ -122,21 +151,27 @@ const bookTicket = async (req, res) => {
 
             concessionType: concessionType,
 
+            quota: quota || "General",
+
+            tatkalCharges: tatkalCharges || 0,
+
             journeyDate: new Date().toLocaleDateString("en-GB"),
 
-            passengerName,
+            passengerName: primaryPassenger.name,
 
-            age,
+            age: primaryPassenger.age,
 
-            gender,
+            gender: primaryPassenger.gender,
+
+            passengers: assignedPassengers,
 
             coach,
 
-            coachNumber: generateCoach(coach),
+            coachNumber: assignedCoach,
 
-            seatNumber: generateSeat(),
+            seatNumber: primaryPassenger.seatNumber,
 
-            berth,
+            berth: primaryPassenger.berth,
 
             mobile,
 
@@ -163,6 +198,26 @@ const bookTicket = async (req, res) => {
         console.log("Email from frontend:", email);
         console.log("Booking email:", booking.email);
         console.log("=============================");
+        const passengerRows = (booking.passengers && booking.passengers.length > 0)
+            ? booking.passengers.map((p, idx) => `
+                <tr style="background:${idx % 2 === 0 ? '#f8fafc' : '#ffffff'};">
+                    <td style="padding:8px;border:1px solid #cbd5e1;text-align:center;">${idx + 1}</td>
+                    <td style="padding:8px;border:1px solid #cbd5e1;"><b>${p.name}</b> (${p.age}, ${p.gender})</td>
+                    <td style="padding:8px;border:1px solid #cbd5e1;">${p.coachNumber || booking.coachNumber}-${p.seatNumber}</td>
+                    <td style="padding:8px;border:1px solid #cbd5e1;">${p.berth}</td>
+                    <td style="padding:8px;border:1px solid #cbd5e1;">${p.concessionType || 'None'}</td>
+                </tr>
+            `).join('')
+            : `
+                <tr>
+                    <td style="padding:8px;border:1px solid #cbd5e1;text-align:center;">1</td>
+                    <td style="padding:8px;border:1px solid #cbd5e1;"><b>${booking.passengerName}</b> (${booking.age}, ${booking.gender})</td>
+                    <td style="padding:8px;border:1px solid #cbd5e1;">${booking.coachNumber}-${booking.seatNumber}</td>
+                    <td style="padding:8px;border:1px solid #cbd5e1;">${booking.berth}</td>
+                    <td style="padding:8px;border:1px solid #cbd5e1;">${booking.concessionType || 'None'}</td>
+                </tr>
+            `;
+
         await sendEmail(
 
             email,
@@ -190,7 +245,7 @@ const bookTicket = async (req, res) => {
         
                     <p>Hello <b>${booking.passengerName}</b>,</p>
         
-                    <p>Your train ticket has been booked successfully.</p>
+                    <p>Your train ticket for <b>${booking.passengers ? booking.passengers.length : 1} Passenger(s)</b> has been booked successfully.</p>
         
                     <hr>
         
@@ -210,25 +265,32 @@ const bookTicket = async (req, res) => {
         
                     <hr>
         
-                    <h3 style="color:#2563eb;">Passenger Details</h3>
+                    <h3 style="color:#2563eb;">Passenger Details (${booking.passengers ? booking.passengers.length : 1} Passenger/s)</h3>
         
-                    <p><b>Name:</b> ${booking.passengerName}</p>
+                    <table style="width:100%;border-collapse:collapse;margin-top:10px;text-align:left;font-size:13px;border:1px solid #cbd5e1;">
+                        <thead>
+                            <tr style="background:#2563eb;color:white;">
+                                <th style="padding:8px;border:1px solid #2563eb;text-align:center;">#</th>
+                                <th style="padding:8px;border:1px solid #2563eb;">Passenger</th>
+                                <th style="padding:8px;border:1px solid #2563eb;">Coach & Seat</th>
+                                <th style="padding:8px;border:1px solid #2563eb;">Berth</th>
+                                <th style="padding:8px;border:1px solid #2563eb;">Concession</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${passengerRows}
+                        </tbody>
+                    </table>
         
-                    <p><b>Age:</b> ${booking.age}</p>
+                    <hr style="margin-top:20px;">
         
-                    <p><b>Gender:</b> ${booking.gender}</p>
+                    <h3 style="color:#2563eb;">Payment Summary</h3>
         
-                    <p><b>Coach:</b> ${booking.coachNumber}</p>
-        
-                    <p><b>Seat:</b> ${booking.seatNumber}</p>
-        
-                    <p><b>Berth:</b> ${booking.berth}</p>
-        
-                    <hr>
-        
-                    <h3 style="color:#2563eb;">Payment</h3>
-        
-                    <p><b>Fare Paid:</b> ₹${booking.fare}</p>
+                    <p><b>Original Fare:</b> ₹${booking.originalFare || booking.fare}</p>
+
+                    <p><b>Discount:</b> -₹${booking.discount || 0}</p>
+
+                    <p><b>Total Fare Paid:</b> ₹${booking.fare}</p>
         
                     <p><b>Status:</b>
                         <span style="color:green;font-weight:bold;">
@@ -361,7 +423,9 @@ const cancelBooking = async (req, res) => {
 
         if (train) {
 
-            train.availableSeats++;
+            const seatsToRestore = (booking.passengers && booking.passengers.length > 0) ? booking.passengers.length : 1;
+
+            train.availableSeats += seatsToRestore;
 
             await train.save();
 

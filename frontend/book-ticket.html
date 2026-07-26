@@ -46,138 +46,91 @@
 
     <form id="bookingForm">
 
-        <div class="input-box">
+        <!-- Dynamic Passengers Container -->
+        <div id="passengersContainer">
+            <!-- Passenger 1 (Primary) -->
+            <div class="passenger-card" data-index="1">
+                <div class="passenger-card-header">
+                    <h3>👤 Passenger 1 (Primary)</h3>
+                </div>
 
-            <label>Passenger Name</label>
+                <div class="input-box">
+                    <label>Passenger Name</label>
+                    <input type="text" class="pass-name" placeholder="Enter Passenger Name" required>
+                </div>
 
-            <input
-                type="text"
-                id="name"
-                placeholder="Enter Passenger Name"
-                required
-            >
+                <div class="input-box">
+                    <label>Age</label>
+                    <input type="number" class="pass-age" placeholder="Enter Age" required>
+                </div>
 
+                <div class="input-box">
+                    <label>Gender</label>
+                    <select class="pass-gender">
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="input-box">
+                    <label>Berth Preference</label>
+                    <select class="pass-berth">
+                        <option>Lower</option>
+                        <option>Middle</option>
+                        <option>Upper</option>
+                        <option>Side Lower</option>
+                        <option>Side Upper</option>
+                        <option>Window</option>
+                    </select>
+                </div>
+
+                <div class="input-box">
+                    <label>Concession Type</label>
+                    <select class="pass-concession">
+                        <option value="None">No Concession</option>
+                        <option value="Senior Citizen">Senior Citizen (40% Off)</option>
+                        <option value="PWD">Person with Disability (PWD 50% Off)</option>
+                    </select>
+                </div>
+            </div>
         </div>
 
-        <div class="input-box">
-
-            <label>Age</label>
-
-            <input
-                type="number"
-                id="age"
-                placeholder="Enter Age"
-                required
-            >
-
-        </div>
+        <button type="button" id="addPassengerBtn" class="add-passenger-btn">
+            ➕ Add Another Passenger (Up to 6)
+        </button>
 
         <div class="input-box">
-
-            <label>Gender</label>
-
-            <select id="gender">
-
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
-
-            </select>
-
-        </div>
-
-        <div class="input-box">
-
-            <label>Coach</label>
-
+            <label>Coach Class</label>
             <select id="coach">
-
                 <option>Sleeper</option>
                 <option>3A</option>
                 <option>2A</option>
                 <option>1A</option>
                 <option>CC</option>
-
             </select>
-
-        </div>
-
-        <div class="input-box">
-
-            <label>Berth Preference</label>
-        
-            <select id="berth">
-        
-                <option>Lower</option>
-                <option>Middle</option>
-                <option>Upper</option>
-                <option>Side Lower</option>
-                <option>Side Upper</option>
-                <option>Window</option>
-        
-            </select>
-        
-        </div>
-
-        <div class="form-group">
-
-            <label for="concession">Concession Type</label>
-        
-            <select id="concession">
-        
-                <option value="None">No Concession</option>
-        
-                <option value="Senior Citizen">Senior Citizen</option>
-        
-                <option value="PWD">Person with Disability (PWD)</option>
-        
-            </select>
-        
         </div>
         
         <div id="concessionWarning" class="warning-box">
-        
             ⚠ <b>Important Notice</b><br><br>
-        
-            If you select <b>Senior Citizen</b> or <b>PWD</b> concession,
-            you must carry a valid Government-issued identity card or disability certificate during your journey.
-        
+            If any passenger has selected <b>Senior Citizen</b> or <b>PWD</b> concession,
+            they must carry a valid Government-issued identity card or disability certificate during the journey.
             <br><br>
-        
-            Failure to produce valid proof may lead to cancellation of concession benefits or penalty as per railway rules.
-        
+            Failure to produce valid proof may lead to penalty as per railway rules.
         </div>
 
         <div class="input-box">
-
             <label>Mobile Number</label>
-
-            <input
-                type="text"
-                id="mobile"
-                placeholder="Enter Mobile Number"
-                required
-            >
-
+            <input type="text" id="mobile" placeholder="Enter Mobile Number" required>
         </div>
 
         <div class="input-box">
-
-            <label>Email</label>
-
-            <input
-                type="email"
-                id="email"
-                placeholder="Enter Email"
-                required
-            >
-
+            <label>Email Address for E-Ticket</label>
+            <input type="email" id="email" placeholder="Enter Email" required>
         </div>
 
         <button type="submit">
-
-            Confirm Booking
-
+            Confirm & Proceed to Payment
         </button>
 
     </form>

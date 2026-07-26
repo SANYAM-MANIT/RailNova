@@ -1,18 +1,18 @@
 # 🚆 RailNova — Next-Gen AI-Powered Railway Reservation & Management System
 
 <p align="center">
-  <img src="https://img.shields.io/badge/RailNova-v1.0.0-2563eb?style=for-the-badge&logo=train&logoColor=white" alt="RailNova Version" />
+  <img src="https://img.shields.io/badge/RailNova-v1.2.0-2563eb?style=for-the-badge&logo=train&logoColor=white" alt="RailNova Version" />
   <img src="https://img.shields.io/badge/AI_Assistant-Google_Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white" alt="Google Gemini AI" />
+  <img src="https://img.shields.io/badge/Group_Booking-Up_to_6_Pass-10b981?style=for-the-badge&logo=users&logoColor=white" alt="Group Booking" />
+  <img src="https://img.shields.io/badge/Tatkal_Quota-Emergency_Surge-f59e0b?style=for-the-badge&logo=lightning&logoColor=white" alt="Tatkal Quota" />
   <img src="https://img.shields.io/badge/Node.js-v20+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
   <img src="https://img.shields.io/badge/Express.js-Backend-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js" />
-  <img src="https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-  <img src="https://img.shields.io/badge/Security-JWT_%26_Bcrypt-red?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="Security" />
+  <img src="https://img.shields.io/badge/MongoDB-1500+_Trains-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
   <img src="https://img.shields.io/badge/Brevo_API-Transactional_Emails-0092FF?style=for-the-badge&logo=sendinblue&logoColor=white" alt="Brevo API" />
-  <img src="https://img.shields.io/badge/Deployment-Render_%26_Vercel-000000?style=for-the-badge&logo=render&logoColor=white" alt="Deployment" />
 </p>
 
 <p align="center">
-  <b>A feature-packed full-stack web application featuring AI passenger assistance, online train booking, automated ticket & PNR generation, transactional email notifications, enterprise security, and administrative railway analytics.</b>
+  <b>A production-grade full-stack web application featuring AI passenger assistance, 1500+ Indian train routes, multi-passenger group booking, individual passenger concessions, Tatkal emergency quotas, automated PNR & seat allocation, transactional emails, enterprise security, and administrative analytics.</b>
 </p>
 
 <p align="center">
@@ -30,7 +30,7 @@
 
 ## 🌟 Overview
 
-**RailNova** digitizes the entire railway reservation lifecycle. It empowers passengers with an **AI-powered travel assistant**, real-time train search, coach and berth preference selection, secure OTP email verification, simulated payments, auto-assigned seat allocations, automated PNR generation, and digital ticket management.
+**RailNova** digitizes the entire railway reservation lifecycle across 1,500+ real-style Indian train routes (Delhi, Mumbai, Bhopal, Ujjain, Varanasi, Bangalore, Kolkata, etc.). It empowers passengers with an **AI-powered travel assistant**, multi-passenger group bookings, individual concession calculations, Tatkal emergency quotas, real-time train search, coach and berth preference selection, secure OTP email verification, simulated payments, auto-assigned seat allocations, automated PNR generation, and digital ticket management.
 
 For administrators, **RailNova** delivers a powerful, protected analytics dashboard featuring system statistics, revenue metrics, live user monitoring, and train inventory management.
 
@@ -43,10 +43,13 @@ For administrators, **RailNova** delivers a powerful, protected analytics dashbo
            ▼                                                 ▼
   👤 Passenger Portal                             👨‍💼 Admin Panel
   ├── 🤖 RailNova AI Travel Assistant              ├── 📊 Live System Analytics
-  ├── 🔍 Train Search & Availability              ├── 💰 Revenue & Booking Trends
-  ├── 📧 Dual-Provider Email Verification         ├── 🚆 Train Inventory Control
-  ├── 💺 Dynamic Coach & Seat Allocation          ├── 🔐 Restricted Access Guard
-  ├── 💳 Simulated Payment & PNR Generation       └── 📈 Real-Time Audit Monitoring
+  ├── 🔍 Train Search (1500+ Indian Routes)       ├── 💰 Revenue & Booking Trends
+  ├── 👥 Multi-Passenger Booking (Up to 6 Pass)   ├── 🚆 Train Inventory Control
+  ├── 🎟️ Per-Passenger Concession Engine          ├── 🔐 Restricted Access Guard
+  ├── ⚡ Tatkal & Premium Tatkal Quota Engine     └── 📈 Real-Time Audit Monitoring
+  ├── 📧 Dual-Provider Email Verification
+  ├── 💺 Dynamic Contiguous Seat Allocation
+  ├── 💳 Simulated Payment & PNR Generation
   ├── 📩 PDF & QR Ticket Generation
   └── ❌ Real-Time Ticket Cancellation
 ```
@@ -57,13 +60,16 @@ For administrators, **RailNova** delivers a powerful, protected analytics dashbo
 
 ### 👤 Passenger Portal
 * **🤖 RailNova AI Travel Assistant**: Conversational AI helper answering questions about train availability, coach classes (`1A`, `2A`, `3A`, `SL`), PNR status, and cancellation policies in real-time.
+* **👥 Multi-Passenger Group Booking**: Book tickets for up to **6 passengers per transaction** with dynamic form inputs and contiguous seat allocation in the same coach bay.
+* **🎟️ Per-Passenger Concession Engine**: Individual discount calculations for Senior Citizens (40% Off) and PWD (50% Off) per passenger within group bookings.
+* **⚡ Emergency Tatkal & Premium Tatkal Quotas**: Last-minute priority booking quotas with surge pricing and golden **"⚡ TATKAL CONFIRMED"** e-ticket badges.
+* **🔍 1,500+ Indian Train Dataset**: Pre-seeded database covering major Indian stations (Delhi, Mumbai, Bhopal, Ujjain Mahakal, Varanasi, etc.).
 * **🔐 Secure Authentication & Email OTP**: Complete registration flow backed by **Brevo REST API** & **Nodemailer SMTP** for fast OTP delivery.
-* **🔎 Smart Train Search**: Search trains by departure/destination, date, and availability status.
 * **💺 Intelligent Seat & Coach Allocation**: Automatic assignment of coaches (`S1`, `B1`, `A1`, `H1`) and berths (`Lower`, `Middle`, `Upper`, `Side Lower`, `Side Upper`).
 * **💳 Simulated Payment Gateway**: Instant ticket confirmation with transaction ID generation and fare summary.
 * **🧾 10-Digit PNR System**: Unique PNR generation for seamless ticket tracking and status verification.
 * **📱 QR Code & PDF Export**: Instant QR code generation for station scanning and single-click PDF ticket download (`jsPDF`).
-* **📩 Ticket Confirmation Email**: Automatic email dispatched directly to the passenger containing full journey details.
+* **📩 Group Ticket Confirmation Email**: Automatic HTML email dispatched directly to the passenger containing full passenger manifest tables.
 * **📋 Booking Management**: View active and historical bookings with one-click cancellation and seat restoration.
 
 ### 👨‍💼 Admin Dashboard
@@ -94,12 +100,6 @@ RailNova features an intelligent, floating **AI Assistant** (`/api/ai/chat`) bui
    - Natural Language Context        - PNR & Booking Guidance
 ```
 
-### AI Capabilities:
-- **🚆 Train & Fare Guidance**: Explains differences between 1A, 2A, 3A, Sleeper, and Tatkal quotas.
-- **🧾 PNR & Booking Help**: Step-by-step assistance for checking PNR status and managing bookings.
-- **❌ Refund & Cancellation Info**: Provides accurate cancellation fee and seat restoration policies.
-- **💬 Sleek Floating UI Widget**: Accessible across pages with typing indicators and smooth responsive layout.
-
 ---
 
 ## 🛡️ Security & Data Protection
@@ -119,18 +119,6 @@ Security is a foundational pillar of RailNova's architecture:
   └─────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 1. 🔑 Stateless Token Authentication (JWT)
-* Private endpoints (ticket booking, cancellations, personal history) require a valid HTTP `Authorization: Bearer <token>` header.
-
-### 2. 🔒 Cryptographic Password Hashing (Bcrypt.js)
-* Uses **Bcrypt.js** (salt factor `10`) to hash passwords before database storage.
-
-### 3. 📧 Two-Step OTP Email Verification
-* Requires a 6-digit dynamic OTP sent via **Brevo API / Nodemailer** to verify emails during signup & password resets.
-
-### 4. 🛡️ Role-Based Access Control (RBAC)
-* Admin routes (`/api/admin/*`) are protected by `adminMiddleware.js`, rejecting unauthorized users with `403 Forbidden`.
-
 ---
 
 ## 🛠️ Technology Stack
@@ -139,33 +127,14 @@ Security is a foundational pillar of RailNova's architecture:
 | :--- | :--- |
 | **Frontend** | HTML5, CSS3 (Glassmorphism UI), JavaScript (ES6+), Fetch API |
 | **Backend** | Node.js, Express.js (REST API Architecture) |
-| **Database** | MongoDB Atlas, Mongoose ODM |
+| **Database** | MongoDB Atlas (1,500+ Indian Trains Dataset), Mongoose ODM |
 | **AI Integration** | **Google Gemini API (1.5 Flash)** + **Railway Knowledge Engine** |
+| **Booking Features** | Multi-Passenger Engine, Per-Passenger Concession, Tatkal Quota |
 | **Authentication** | JSON Web Tokens (JWT), Bcrypt.js (Password Hashing) |
 | **Transactional Email** | **Brevo REST API (HTTPS)** + **Nodemailer (Gmail SMTP)** |
 | **Ticket Utilities** | QR Code Generator (`qrcode.js`), PDF Exporter (`jsPDF`) |
 | **Security** | Express Authorization Middleware, RBAC Guards, Validator.js, CORS |
 | **Hosting** | Render (Backend API), Vercel (Frontend Client) |
-
----
-
-## ⚡ Email Service Architecture (Dual Provider)
-
-```text
-               ┌───────────────────────────────┐
-               │    Trigger Email Notification  │
-               └───────────────┬───────────────┘
-                               │
-                               ▼
-                Is BREVO_API_KEY Configured?
-                   /                       \
-                 YES                        NO
-                 /                           \
-                ▼                             ▼
-   🚀 Brevo REST API (Port 443)    📧 Nodemailer Gmail SMTP (Port 465/587)
-   - Bypasses Cloud Port Block     - Automatic Password Sanitization
-   - Fast & Reliable               - Secure TLS Connection
-```
 
 ---
 
@@ -181,6 +150,8 @@ RailNova/
 │   ├── 📁 models/        # Mongoose Schemas (User, Train, Booking)
 │   ├── 📁 routes/        # Express Routes (auth, train, booking, admin, ai)
 │   ├── 📁 utils/         # Dual Brevo/Nodemailer Mail Utility (sendEmail.js)
+│   ├── 📄 generateTrains.js # 1500+ Indian Trains Dataset Generator
+│   ├── 📄 seedTrainData.js # MongoDB Atlas Dataset Seeder
 │   ├── 📄 server.js      # Main Application Entry Point
 │   └── 📄 package.json   # Node Dependencies
 │
@@ -188,6 +159,9 @@ RailNova/
     ├── 📄 index.html     # Landing & Train Search
     ├── 📄 login.html     # User Login
     ├── 📄 signup.html    # User Registration & OTP Verification
+    ├── 📄 train-search.html # Train Search with Quota & Class Filters
+    ├── 📄 book-ticket.html  # Multi-Passenger Booking Form
+    ├── 📄 payment.html      # Payment Gateway Summary
     ├── 📄 ticket.html    # Digital Ticket Display with QR & PDF Download
     ├── 📄 pnr.html       # PNR Search & Status
     ├── 📄 admin.html     # Administrator Analytics Dashboard
@@ -226,14 +200,17 @@ BREVO_API_KEY=your_brevo_api_key
 GEMINI_API_KEY=your_google_gemini_api_key
 ```
 
-### 3️⃣ Run Locally
+### 3️⃣ Seed 1500+ Trains
+```bash
+node generateTrains.js
+node seedTrainData.js
+```
+
+### 4️⃣ Run Locally
 ```bash
 npm run dev
 ```
 The server will start at `http://localhost:8080`.
-
-### 4️⃣ Open Frontend
-Open `frontend/index.html` in your browser or run it using **VS Code Live Server**.
 
 ---
 
@@ -246,10 +223,10 @@ Open `frontend/index.html` in your browser or run it using **VS Code Live Server
 | `/api/auth/verify-otp` | `POST` | Verify OTP & activate account | Public |
 | `/api/auth/login` | `POST` | Authenticate user & issue JWT | Public |
 | `/api/auth/forgot-password` | `POST` | Send password reset OTP | Public |
-| `/api/trains/search` | `GET` | Search trains by route & date | Public |
-| `/api/bookings/book` | `POST` | Book ticket, assign seats & send email | Private (JWT Required) |
+| `/api/trains/search` | `GET` | Search 1500+ trains by route & date | Public |
+| `/api/bookings/book` | `POST` | Book multi-passenger ticket & Tatkal quota | Private (JWT Required) |
 | `/api/bookings/my-bookings`| `GET` | Fetch user booking history | Private (JWT Required) |
-| `/api/bookings/cancel/:id` | `DELETE`| Cancel booking & release seat | Private (JWT Required) |
+| `/api/bookings/cancel/:id` | `DELETE`| Cancel group booking & restore seats | Private (JWT Required) |
 | `/api/pnr/:pnr` | `GET` | Retrieve booking status by PNR | Public |
 | `/api/admin/stats` | `GET` | System dashboard metrics & revenue | Protected (Admin RBAC) |
 

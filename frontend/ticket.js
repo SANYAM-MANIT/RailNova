@@ -26,25 +26,42 @@ setValue("trainName", booking.trainName);
 
 setValue("trainNumber", booking.trainNumber);
 
-setValue("passenger", booking.passengerName);
-
-setValue("age", booking.age);
-
-setValue("gender", booking.gender);
-
-setValue("coach", booking.coach);
-
-setValue("coachNumber", booking.coachNumber);
-
-setValue("seatNumber", booking.seatNumber);
-
-setValue("berth", booking.berth);
+if (booking.passengers && booking.passengers.length > 0) {
+    const names = booking.passengers.map((p, idx) => {
+        const concStr = p.concessionType && p.concessionType !== "None" ? ` [${p.concessionType}]` : "";
+        return `${idx + 1}. ${p.name} (${p.age}, ${p.gender})${concStr}`;
+    }).join(" | ");
+    const seats = booking.passengers.map(p => `${p.coachNumber || booking.coachNumber}-${p.seatNumber}`).join(", ");
+    const berths = booking.passengers.map(p => `${p.name.split(" ")[0]}: ${p.berth}`).join(" | ");
+    
+    setValue("passenger", names);
+    setValue("age", `${booking.passengers.length} Passenger(s)`);
+    setValue("gender", "Group Booking");
+    setValue("seatNumber", seats);
+    setValue("berth", berths);
+} else {
+    setValue("passenger", booking.passengerName);
+    setValue("age", booking.age);
+    setValue("gender", booking.gender);
+    setValue("seatNumber", booking.seatNumber);
+    setValue("berth", booking.berth);
+}
 
 setValue("from", booking.from);
 
 setValue("to", booking.to);
 
 setValue("status", booking.status);
+
+setValue("quota", booking.quota || "General");
+
+if (booking.quota && booking.quota !== "General") {
+    const statusBox = document.querySelector(".status");
+    if (statusBox) {
+        statusBox.textContent = `⚡ ${booking.quota.toUpperCase()} BOOKING CONFIRMED`;
+        statusBox.style.background = "linear-gradient(135deg, #f59e0b, #d97706)";
+    }
+}
 
 setValue("mobile", booking.mobile || "-");
 

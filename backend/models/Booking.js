@@ -88,6 +88,17 @@ const bookingSchema = new mongoose.Schema(
             default: "None"
         },
 
+        quota: {
+            type: String,
+            enum: ["General", "Tatkal", "Premium Tatkal"],
+            default: "General"
+        },
+
+        tatkalCharges: {
+            type: Number,
+            default: 0
+        },
+
         passengerName: {
 
             type: String,
@@ -111,6 +122,19 @@ const bookingSchema = new mongoose.Schema(
             required: true
 
         },
+
+        passengers: [
+            {
+                name: { type: String, required: true },
+                age: { type: Number, required: true },
+                gender: { type: String, required: true },
+                berth: { type: String },
+                concessionType: { type: String, default: "None" },
+                discount: { type: Number, default: 0 },
+                coachNumber: { type: String },
+                seatNumber: { type: Number }
+            }
+        ],
 
         coach: {
 
