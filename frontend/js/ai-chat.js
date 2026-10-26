@@ -81,7 +81,11 @@
 
             const botMsgDiv = document.createElement("div");
             botMsgDiv.className = "ai-msg ai-msg-bot";
-            botMsgDiv.innerHTML = (data.reply || "Unable to get response").replace(/\n/g, "<br>");
+            const formattedReply = (data.reply || "Unable to get response")
+                .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")
+                .replace(/\*(.*?)\*/g, "<i>$1</i>")
+                .replace(/\n/g, "<br>");
+            botMsgDiv.innerHTML = formattedReply;
             messagesContainer.appendChild(botMsgDiv);
         } catch (err) {
             loadingDiv.remove();
