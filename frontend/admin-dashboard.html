@@ -3,244 +3,214 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RailNova Admin Dashboard</title>
 
-<title>RailNova Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="toast.css">
-<link rel="stylesheet" href="admin-dashboard.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="toast.css">
+    <link rel="stylesheet" href="admin-dashboard.css">
 
 </head>
 
 <body>
-    <div class="mobile-header">
 
+    <div class="mobile-header">
         <button id="menuBtn">
-    
             <i class="fa-solid fa-bars"></i>
-    
         </button>
-    
         <h2>🚆 RailNova Admin</h2>
-    
     </div>
 
-<div class="dashboard">
+    <div class="dashboard">
 
-    <div class="sidebar" id="sidebar">
+        <!-- Sidebar (matches RailNova style) -->
+        <aside class="sidebar" id="sidebar">
 
-        <h2>🚆 RailNova</h2>
-        
-        <a href="admin-dashboard.html" class="active">
-            <i class="fa-solid fa-chart-line"></i>
-            Dashboard
-        </a>
-        
-        <a href="add-train.html" class="active">
-            <i class="fa-solid fa-plus"></i>
-            Add Train
-        </a>
-        
-        <a href="manage-trains.html" class="active">
-            <i class="fa-solid fa-train"></i>
-            Manage Trains
-        </a>
-        
-        <a href="view-users.html" class="active">
-            <i class="fa-solid fa-users"></i>
-            Users
-        </a>
-        
-        <a href="view-bookings.html" class="active">
-            <i class="fa-solid fa-ticket"></i>
-            Bookings
-        </a>
-        
-        <a href="#" id="logoutBtn" class="active">
-            <i class="fa-solid fa-right-from-bracket"></i>
-            Logout
-        </a>
-        
-        </div>
+            <div class="logo">
+                <i class="fa-solid fa-train"></i>
+                <h2>RailNova</h2>
+            </div>
+
+            <nav>
+                <a href="admin-dashboard.html" class="active">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Dashboard
+                </a>
+
+                <a href="add-train.html">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Train
+                </a>
+
+                <a href="manage-trains.html">
+                    <i class="fa-solid fa-train"></i>
+                    Manage Trains
+                </a>
+
+                <a href="view-bookings.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    Bookings
+                </a>
+
+                <a href="view-users.html">
+                    <i class="fa-solid fa-users"></i>
+                    Users
+                </a>
+
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    User View
+                </a>
+
+                <a href="#" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </nav>
+
+        </aside>
 
         <div class="overlay" id="overlay"></div>
 
-<div class="main">
+        <!-- Main Content -->
+        <div class="content">
 
-<h1>Admin Dashboard</h1>
+            <header>
+                <div>
+                    <h1>Admin Dashboard</h1>
+                    <p>Welcome back, manage your railway operations</p>
+                </div>
+                <div class="profile">
+                    <div class="avatar" id="avatarLetter">SJ</div>
+                </div>
+            </header>
 
-<div class="cards">
+            <!-- Stats Grid -->
+            <div class="stats-section">
 
-<div class="card">
+                <div class="stat-card">
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                    <h2 id="revenue">₹0</h2>
+                    <p>Total Revenue</p>
+                </div>
 
-<h2 id="users">0</h2>
+                <div class="stat-card">
+                    <i class="fa-solid fa-ticket"></i>
+                    <h2 id="bookings">0</h2>
+                    <p>Total Bookings</p>
+                </div>
 
-<p>Total Users</p>
+                <div class="stat-card">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <h2 id="confirmed">0</h2>
+                    <p>Confirmed</p>
+                </div>
 
-</div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-train"></i>
+                    <h2 id="trains">0</h2>
+                    <p>Total Trains</p>
+                </div>
 
-<div class="card">
+                <div class="stat-card">
+                    <i class="fa-solid fa-users"></i>
+                    <h2 id="users">0</h2>
+                    <p>Total Users</p>
+                </div>
 
-<h2 id="trains">0</h2>
+                <div class="stat-card">
+                    <i class="fa-solid fa-calendar-day"></i>
+                    <h2 id="today">0</h2>
+                    <p>Today's Bookings</p>
+                </div>
 
-<p>Total Trains</p>
+                <div class="stat-card">
+                    <i class="fa-solid fa-ban"></i>
+                    <h2 id="cancelled">0</h2>
+                    <p>Cancelled</p>
+                </div>
 
-</div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-route"></i>
+                    <h2 id="routes">0</h2>
+                    <p>Popular Routes</p>
+                </div>
 
-<div class="card">
+            </div>
 
-<h2 id="bookings">0</h2>
+            <!-- Quick Action Buttons -->
+            <div class="actions">
+                <button onclick="window.location.href='add-train.html'">
+                    <i class="fa-solid fa-plus"></i> Add Train
+                </button>
+                <button onclick="window.location.href='manage-trains.html'">
+                    <i class="fa-solid fa-train"></i> Manage Trains
+                </button>
+                <button onclick="window.location.href='view-bookings.html'">
+                    <i class="fa-solid fa-ticket"></i> View Bookings
+                </button>
+                <button onclick="window.location.href='view-users.html'">
+                    <i class="fa-solid fa-users"></i> View Users
+                </button>
+            </div>
 
-<p>Total Bookings</p>
+            <!-- Charts Section -->
+            <div class="charts-section">
 
-</div>
+                <div class="chart-card">
+                    <h2>Monthly Bookings</h2>
+                    <canvas id="bookingChart"></canvas>
+                </div>
 
-<div class="card">
+                <div class="chart-card">
+                    <h2>Booking Status</h2>
+                    <canvas id="statusChart"></canvas>
+                </div>
 
-<h2 id="cancelled">0</h2>
+            </div>
 
-<p>Cancelled</p>
+            <!-- Bottom Grid: Recent Bookings & Popular Routes -->
+            <div class="bottom-grid">
 
-</div>
+                <div class="recent-bookings">
+                    <div class="card-header">
+                        <h2>Recent Bookings</h2>
+                        <a href="view-bookings.html">View All</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Passenger</th>
+                                <th>Train</th>
+                                <th>Fare</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentBookings">
+                        </tbody>
+                    </table>
+                </div>
 
-<div class="card">
+                <div class="popular-routes">
+                    <h2>Popular Routes</h2>
+                    <div id="popularRoutes"></div>
+                </div>
 
-    <h2 id="revenue">₹0</h2>
+            </div>
 
-    <p>Total Revenue</p>
-
-</div>
-
-<div class="card">
-
-    <h2 id="confirmed">0</h2>
-
-    <p>Confirmed</p>
-
-</div>
-
-<div class="card">
-
-    <h2 id="today">0</h2>
-
-    <p>Today's Bookings</p>
-
-</div>
-
-<div class="card">
-
-    <h2 id="routes">0</h2>
-
-    <p>Popular Routes</p>
-
-</div>
-
-</div>
-
-<div class="actions">
-
-<button onclick="window.location.href='add-train.html'">
-
-➕ Add Train
-
-</button>
-
-<button onclick="window.location.href='manage-trains.html'">
-
-🚆 Manage Trains
-
-</button>
-
-<button onclick="window.location.href='view-bookings.html'">
-
-🎫 View Bookings
-
-</button>
-
-<button onclick="window.location.href='view-users.html'">
-
-👥 View Users
-
-</button>
-
-</div>
-
-<section class="analytics"></section>
-
-    <div class="chart-card">
-
-        <h2>Monthly Bookings</h2>
-
-        <canvas id="bookingChart"></canvas>
+        </div>
 
     </div>
 
-    <div class="chart-card">
-
-        <h2>Booking Status</h2>
-
-        <canvas id="statusChart"></canvas>
-
-    </div>
-
-</section>
-
-<section class="bottom-grid">
-
-    <div class="recent-bookings">
-
-        <h2>Recent Bookings</h2>
-
-        <table>
-
-            <thead>
-
-                <tr>
-
-                    <th>Passenger</th>
-
-                    <th>Train</th>
-
-                    <th>Fare</th>
-
-                </tr>
-
-            </thead>
-
-            <tbody id="recentBookings">
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-    <div class="popular-routes">
-
-        <h2>Popular Routes</h2>
-
-        <div id="popularRoutes"></div>
-
-    </div>
-
-</section>
-
-</div>
-
-</div>
-<script src="toast.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="admin-dashboard.js"></script>
+    <script src="toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin-dashboard.js"></script>
 
 </body>
 

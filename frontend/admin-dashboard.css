@@ -1,668 +1,440 @@
-*{
-
-    margin:0;
-    
-    padding:0;
-    
-    box-sizing:border-box;
-    
-    font-family:"Poppins",sans-serif;
-    
-    }
-    
-    body{
-    
-    background:#eef4ff;
-    
-    }
-    
-    .dashboard{
-    
-    display:flex;
-    
-    min-height:100vh;
-    
-    }
-    
-    .sidebar{
-    
-    width:250px;
-    
-    background:#1d4ed8;
-    
-    color:white;
-    
-    padding:30px;
-    
-    display:flex;
-    
-    flex-direction:column;
-    
-    }
-    
-    .sidebar h2{
-    
-    margin-bottom:40px;
-    
-    }
-    
-    .sidebar a{
-    
-    color:white;
-    
-    text-decoration:none;
-    
-    margin:15px 0;
-    
-    font-size:18px;
-    
-    }
-    
-    .sidebar a:hover{
-    
-    opacity:.8;
-    
-    }
-    
-    .main{
-    
-    flex:1;
-    
-    padding:40px;
-    
-    }
-    
-    .main h1{
-    
-    margin-bottom:30px;
-    
-    color:#1d4ed8;
-    
-    }
-    
-    .cards{
-    
-    display:grid;
-    
-    grid-template-columns:repeat(4,1fr);
-    
-    gap:25px;
-    
-    }
-    
-    .card{
-    
-    background:white;
-    
-    padding:30px;
-    
-    border-radius:18px;
-    
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
-    
-    text-align:center;
-    
-    }
-    
-    .card h2{
-    
-    font-size:42px;
-    
-    color:#2563eb;
-    
-    margin-bottom:10px;
-    
-    }
-    
-    .actions{
-    
-    margin-top:50px;
-    
-    display:grid;
-    
-    grid-template-columns:repeat(2,1fr);
-    
-    gap:20px;
-    
-    }
-    
-    button{
-    
-    padding:18px;
-    
-    font-size:18px;
-    
-    border:none;
-    
-    border-radius:12px;
-    
-    background:#2563eb;
-    
-    color:white;
-    
-    cursor:pointer;
-    
-    transition:.3s;
-    
-    }
-    
-    button:hover{
-    
-    background:#1d4ed8;
-    
-    transform:translateY(-3px);
-    
-    }
-
-    .sidebar a{
-
-        display:block;
-        
-        padding:15px 20px;
-        
-        color:white;
-        
-        text-decoration:none;
-        
-        border-radius:10px;
-        
-        margin:8px 15px;
-        
-        transition:.3s;
-        
-        }
-        
-        .sidebar a:hover{
-        
-        background:rgba(255,255,255,.15);
-        
-        }
-        
-        .sidebar a.active{
-        
-        background:white;
-        
-        color:#2563eb;
-        
-        font-weight:600;
-        
-        }
-        
-        .sidebar a i{
-        
-        width:25px;
-        
-        margin-right:8px;
-        
-        }
-
-        /* ==========================
-   Mobile Header
-========================== */
-
-.mobile-header{
-
-    display:none;
-
+:root {
+    --primary: #2563eb;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --white: #ffffff;
+    --text: #1e293b;
+    --gray: #64748b;
+    --border: #e2e8f0;
 }
 
-@media(max-width:768px){
-
-    .mobile-header{
-
-        display:flex;
-
-        align-items:center;
-
-        justify-content:flex-start;
-
-        gap:18px;
-
-        padding:16px 20px;
-
-        background:#1d4ed8;
-
-        color:white;
-
-        position:sticky;
-
-        top:0;
-
-        z-index:1200;
-
-    }
-
-    #menuBtn{
-
-        background:none;
-
-        border:none;
-
-        color:white;
-
-        font-size:28px;
-
-        cursor:pointer;
-
-        padding:0;
-
-        width:auto;
-
-    }
-
-    .mobile-header h2{
-
-        font-size:24px;
-
-        font-weight:700;
-
-        margin:0;
-
-        white-space:nowrap;
-
-        overflow:hidden;
-
-        text-overflow:ellipsis;
-
-    }
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-/* Overlay */
-
-.overlay{
-
-    display:none;
-
+body {
+    background: var(--light);
 }
 
-/* ==========================
-   Tablet
-========================== */
-
-@media(max-width:992px){
-
-    .cards{
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-    .actions{
-
-        grid-template-columns:1fr;
-
-    }
-
+.dashboard {
+    display: flex;
+    min-height: 100vh;
 }
 
-/* ==========================
-   Mobile
-========================== */
-
-@media(max-width:768px){
-
-    .mobile-header{
-
-        display:flex;
-
-        justify-content:space-between;
-
-        align-items:center;
-
-        padding:18px 20px;
-
-        background:#1d4ed8;
-
-        color:white;
-
-        position:sticky;
-
-        top:0;
-
-        z-index:1200;
-
-    }
-
-    .mobile-header h2{
-
-        font-size:22px;
-
-    }
-
-    #menuBtn{
-
-        background:none;
-
-        border:none;
-
-        color:white;
-
-        font-size:24px;
-
-        cursor:pointer;
-
-    }
-
-    .dashboard{
-
-        display:block;
-
-    }
-
-    .sidebar{
-
-        position:fixed;
-
-        left:-270px;
-
-        top:0;
-
-        width:250px;
-
-        height:100vh;
-
-        transition:.35s;
-
-        z-index:1300;
-
-        overflow-y:auto;
-
-    }
-
-    .sidebar.show{
-
-        left:0;
-
-    }
-
-    .overlay{
-
-        position:fixed;
-
-        inset:0;
-
-        background:rgba(0,0,0,.45);
-
-        display:none;
-
-        z-index:1200;
-
-    }
-
-    .overlay.show{
-
-        display:block;
-
-    }
-
-    .main{
-
-        padding:20px;
-
-    }
-
-    .main h1{
-
-        font-size:28px;
-
-        text-align:center;
-
-    }
-
-    .cards{
-
-        grid-template-columns:1fr;
-
-        gap:18px;
-
-    }
-
-    .actions{
-
-        grid-template-columns:1fr;
-
-        gap:15px;
-
-    }
-
-    button{
-
-        width:100%;
-
-        font-size:16px;
-
-    }
-
+/* Sidebar (Matches RailNova Dashboard) */
+.sidebar {
+    width: 270px;
+    background: var(--dark);
+    color: white;
+    padding: 30px 22px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
 }
 
-/* ==========================
-   Small Phones
-========================== */
-
-@media(max-width:480px){
-
-    .main{
-
-        padding:15px;
-
-    }
-
-    .card{
-
-        padding:22px;
-
-    }
-
-    .card h2{
-
-        font-size:34px;
-
-    }
-
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
 }
 
-
-.analytics{
-
-    margin-top:40px;
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:25px;
-
+.logo i {
+    font-size: 26px;
+    color: #60a5fa;
 }
 
-.chart-card{
-
-    background:#fff;
-
-    border-radius:18px;
-
-    padding:25px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-
+.logo h2 {
+    font-size: 24px;
+    font-weight: 700;
 }
 
-.chart-card{
-
-    background:#fff;
-
-    border-radius:18px;
-
-    padding:25px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-    height:380px;
-
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.chart-card canvas{
-
-    width:100% !important;
-
-    height:100% !important;
-
+.sidebar nav a {
+    text-decoration: none;
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    transition: 0.3s;
+    font-weight: 500;
+    font-size: 15px;
 }
 
-.bottom-grid{
+.sidebar nav a:hover {
+    background: #1e293b;
+    color: white;
+}
 
-    display:grid;
+.sidebar nav a.active {
+    background: var(--primary);
+    color: white;
+}
 
-    grid-template-columns:2fr 1fr;
+.sidebar nav i {
+    width: 22px;
+    text-align: center;
+    font-size: 16px;
+}
 
-    gap:25px;
+/* Content Area */
+.content {
+    flex: 1;
+    padding: 35px 40px;
+    overflow-y: auto;
+}
 
-    margin-top:35px;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
 
+header h1 {
+    color: var(--text);
+    font-size: 30px;
+    font-weight: 700;
+}
+
+header p {
+    color: var(--gray);
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+/* Stats Section (Matches RailNova .stat-card) */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card i {
+    font-size: 24px;
+    color: var(--primary);
+    margin-bottom: 14px;
+    display: inline-block;
+}
+
+.stat-card h2 {
+    font-size: 30px;
+    color: var(--text);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.stat-card p {
+    color: var(--gray);
+    font-size: 13.5px;
+    font-weight: 500;
+}
+
+/* Quick Action Buttons */
+.actions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 35px;
+}
+
+.actions button {
+    padding: 14px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 12px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    transition: 0.25s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.actions button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* Charts Section */
+.charts-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.chart-card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.chart-card h2 {
+    font-size: 18px;
+    color: var(--text);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.chart-card canvas {
+    flex: 1;
+    max-height: 290px;
+    width: 100% !important;
+}
+
+/* Bottom Grid (Recent Bookings & Popular Routes) */
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
 }
 
 .recent-bookings,
-
-.popular-routes{
-
-    background:white;
-
-    padding:25px;
-
-    border-radius:18px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-
+.popular-routes {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
-.popular-routes{
-
-    background:#fff;
-
-    padding:25px;
-
-    border-radius:18px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.popular-routes h2{
-
-    margin-bottom:20px;
-
-    color:#111827;
-
+.card-header h2,
+.popular-routes h2 {
+    font-size: 18px;
+    color: var(--text);
+    font-weight: 600;
 }
 
-.popular-routes div{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:14px 16px;
-
-    margin-bottom:12px;
-
-    background:#f8faff;
-
-    border:1px solid #e5e7eb;
-
-    border-radius:12px;
-
-    transition:.3s;
-
+.card-header a {
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 14px;
 }
 
-.popular-routes div:hover{
-
-    background:#eef4ff;
-
-    transform:translateX(5px);
-
+.card-header a:hover {
+    text-decoration: underline;
 }
 
-.popular-routes span{
-
-    font-size:15px;
-
-    font-weight:600;
-
-    color:#1f2937;
-
-    max-width:200px;
-
-    white-space:nowrap;
-
-    overflow:hidden;
-
-    text-overflow:ellipsis;
-
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.popular-routes strong{
-
-    min-width:34px;
-
-    text-align:center;
-
-    background:#2563eb;
-
-    color:#fff;
-
-    padding:5px 10px;
-
-    border-radius:20px;
-
-    font-size:13px;
-
+th {
+    text-align: left;
+    color: var(--gray);
+    padding-bottom: 14px;
+    font-size: 13.5px;
+    font-weight: 500;
 }
 
-.recent-bookings table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
+td {
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    color: var(--text);
+    font-size: 14px;
+    vertical-align: middle;
 }
 
-.recent-bookings th,
-
-.recent-bookings td{
-
-    padding:12px;
-
-    text-align:left;
-
+.confirmed {
+    background: #dcfce7;
+    color: #166534;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 600;
+    display: inline-block;
 }
 
-.recent-bookings th{
-
-    color:#666;
-
+.cancelled {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 600;
+    display: inline-block;
 }
 
-@media(max-width:900px){
-
-.analytics{
-
-grid-template-columns:1fr;
-
+/* Popular Routes Items */
+.popular-routes div div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: 0.2s;
 }
 
-.bottom-grid{
-
-grid-template-columns:1fr;
-
+.popular-routes div div:hover {
+    background: #f1f5f9;
 }
 
-.chart-card canvas{
-
-height:260px !important;
-
+.popular-routes span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
 }
 
+.popular-routes strong {
+    background: var(--primary);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Mobile Header & Responsive */
+.mobile-header {
+    display: none;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1100;
+}
+
+.overlay.show {
+    display: block;
+}
+
+@media (max-width: 1100px) {
+    .stats-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .actions {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .charts-section {
+        grid-template-columns: 1fr;
+    }
+
+    .bottom-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 20px;
+        background: var(--dark);
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 1200;
+    }
+
+    .mobile-header h2 {
+        font-size: 20px;
+    }
+
+    #menuBtn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .dashboard {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -280px;
+        top: 0;
+        bottom: 0;
+        width: 260px;
+        transition: 0.3s;
+        z-index: 1300;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .stats-section {
+        grid-template-columns: 1fr;
+    }
+
+    .actions {
+        grid-template-columns: 1fr;
+    }
 }
