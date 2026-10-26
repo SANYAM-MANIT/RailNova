@@ -109,6 +109,8 @@ const signup = async (req, res) => {
 
         });
 
+        console.log(`🔑 [OTP DISPATCH] Email: ${email} | Verification OTP: ${otp}`);
+
         await sendOTPEmail(email, otp);
 
         res.status(200).json({
@@ -237,6 +239,8 @@ const forgotPassword = async (req, res) => {
         );
 
         await user.save();
+
+        console.log(`🔑 [PASSWORD RESET OTP] Email: ${email} | Reset OTP: ${otp}`);
 
         await sendEmail(
 

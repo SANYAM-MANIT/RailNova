@@ -44,11 +44,14 @@ const sendEmail = async (to, subject, html) => {
         throw new Error(errMsg);
     }
 
-    // Create transporter with explicit Gmail SMTP configuration
+    // Create transporter with explicit Gmail SMTP configuration and short timeouts
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
         secure: true, // SSL
+        connectionTimeout: 5000,
+        greetingTimeout: 5000,
+        socketTimeout: 5000,
         auth: {
             user: emailUser,
             pass: emailPass
