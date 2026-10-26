@@ -1,418 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RailNova</title>
+    <title>RailNova — Modern Railway Reservation Platform</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/ai-chat.css">
 </head>
+
 <body>
 
-    <!-- Navbar -->
+    <!-- Navigation Header -->
     <header>
-
         <nav class="navbar">
-    
-            <div class="logo">
+            <a href="index.html" class="logo">
                 🚆 RailNova
+            </a>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
             </div>
-    
-            <!-- Mobile Menu Button -->
-            <div class="menu-toggle" id="menuToggle">
-                ☰
-            </div>
-    
-            <ul class="nav-links">
-    
-                <li>
-                    <a href="#" class="protected-link">Home</a>
-                </li>
-    
-                <li>
-                    <a href="#" class="protected-link">Train Search</a>
-                </li>
-    
-                <li>
-                    <a href="#" class="protected-link">PNR Status</a>
-                </li>
-    
-                <li>
-                    <a href="#" class="protected-link">Live Status</a>
-                </li>
-    
-                <li>
-                    <a href="#" class="protected-link">Contact</a>
-                </li>
-    
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="train-search.html" class="protected-link">Train Search</a></li>
+                <li><a href="pnr-status.html" class="protected-link">PNR Status</a></li>
+                <li><a href="live-status.html" class="protected-link">Live Status</a></li>
+                <li><a href="my-bookings.html" class="protected-link">My Bookings</a></li>
             </ul>
-    
-            <div class="nav-btns">
-    
+
+            <div class="nav-btns" id="navBtns">
                 <a href="login.html">
-                    <button class="login-btn">
-                        Login
-                    </button>
+                    <button class="login-btn">Login</button>
                 </a>
-    
                 <a href="signup.html">
-                    <button class="signup-btn">
-                        Sign Up
-                    </button>
+                    <button class="signup-btn">Sign Up</button>
                 </a>
-    
             </div>
-    
         </nav>
-    
     </header>
+
     <main>
 
-        <section class="hero">
-        
-            <div class="hero-left">
-        
-                <span class="hero-tag">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container hero">
+                <div class="hero-left">
+                    <div class="hero-tag">
+                        ⭐ Trusted by 10 Million+ Indian Travellers
+                    </div>
 
-                    ⭐ Trusted by 10 Million+ Indian Travellers
-                
-                </span>
-        
-                <h1>
+                    <h1>
+                        Travel Across India
+                        <span>Smarter, Faster & Stress-Free.</span>
+                    </h1>
 
-                    Travel Across India
-                
-                    <span>Smarter, Faster & Stress-Free.</span>
-                
-                </h1>
-        
-                <p>
-
-                    Book train tickets, check live train status, track your PNR,
-                    manage bookings and travel confidently with India's modern railway platform.
-                    
+                    <p>
+                        Book train tickets, check live train status, track your PNR,
+                        manage group bookings, and travel with confidence across 1,500+ Indian routes.
                     </p>
 
                     <div class="hero-features">
-
-                        <span>✅ Instant Booking</span>
-                    
-                        <span>📍 Live Tracking</span>
-                    
-                        <span>🎫 PNR Status</span>
-                    
-                        <span>🔒 Secure Payments</span>
-                    
+                        <span><i class="fa-solid fa-circle-check"></i> Instant Booking</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Live Tracking</span>
+                        <span><i class="fa-solid fa-ticket"></i> PNR Status</span>
+                        <span><i class="fa-solid fa-shield-halved"></i> Secure Payments</span>
                     </div>
-        
-                <div class="hero-buttons">
-        
-                    <button class="primary-btn protected-btn">
-                        Book Tickets
-                    </button>
-        
-                    <button class="secondary-btn protected-btn">
-                        Live Status
-                    </button>
-        
+
+                    <div class="hero-buttons">
+                        <button class="primary-btn protected-btn" data-target="train-search.html">
+                            <i class="fa-solid fa-train"></i> Book Tickets
+                        </button>
+                        <button class="secondary-btn protected-btn" data-target="live-status.html">
+                            <i class="fa-solid fa-location-arrow"></i> Live Status
+                        </button>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h2>10M+</h2>
+                            <span>Happy Users</span>
+                        </div>
+                        <div class="stat-item">
+                            <h2>1,500+</h2>
+                            <span>Indian Trains</span>
+                        </div>
+                        <div class="stat-item">
+                            <h2>99.9%</h2>
+                            <span>System Uptime</span>
+                        </div>
+                    </div>
                 </div>
-        
-                <div class="hero-stats">
-        
-                    <div>
+
+                <div class="hero-right">
+                    <img src="images/train.png" alt="Indian Railway Train">
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Bar Section -->
+        <section class="search-section">
+            <div class="container">
+                <div class="search-card">
+                    <div class="field">
+                        <label><i class="fa-solid fa-location-dot"></i> From</label>
+                        <input type="text" placeholder="New Delhi (NDLS)" readonly>
+                    </div>
+
+                    <div class="field swap-field">
+                        <label class="label-spacer">&nbsp;</label>
+                        <button class="swap-btn protected-btn" data-target="train-search.html" title="Swap origin & destination">
+                            <i class="fa-solid fa-right-left"></i>
+                        </button>
+                    </div>
+
+                    <div class="field">
+                        <label><i class="fa-solid fa-location-dot"></i> To</label>
+                        <input type="text" placeholder="Mumbai Central (BCT)" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label><i class="fa-regular fa-calendar"></i> Journey Date</label>
+                        <input type="date" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label><i class="fa-solid fa-couch"></i> Class</label>
+                        <select disabled>
+                            <option>All Classes</option>
+                            <option>Sleeper (SL)</option>
+                            <option>AC 3 Tier (3A)</option>
+                            <option>AC 2 Tier (2A)</option>
+                            <option>AC First Class (1A)</option>
+                        </select>
+                    </div>
+
+                    <div class="field search-btn-field">
+                        <label class="label-spacer">&nbsp;</label>
+                        <button class="search-btn protected-btn" data-target="train-search.html">
+                            <i class="fa-solid fa-magnifying-glass"></i> Search Trains
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Routes Section -->
+        <section class="routes-section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Popular Routes</h2>
+                    <p>Most frequently booked railway corridors this week</p>
+                </div>
+
+                <div class="route-grid">
+                    <div class="route-card">
+                        <div class="route-top">
+                            <h3>Delhi → Mumbai</h3>
+                            <span class="route-badge">High Demand</span>
+                        </div>
+                        <p><i class="fa-solid fa-train"></i> Rajdhani Express</p>
+                        <button class="protected-btn" data-target="train-search.html">View Trains</button>
+                    </div>
+
+                    <div class="route-card">
+                        <div class="route-top">
+                            <h3>Bhopal → Ujjain</h3>
+                            <span class="route-badge">Mahakal</span>
+                        </div>
+                        <p><i class="fa-solid fa-train"></i> Mahakal Express</p>
+                        <button class="protected-btn" data-target="train-search.html">View Trains</button>
+                    </div>
+
+                    <div class="route-card">
+                        <div class="route-top">
+                            <h3>Bengaluru → Chennai</h3>
+                            <span class="route-badge">Superfast</span>
+                        </div>
+                        <p><i class="fa-solid fa-train"></i> Shatabdi Express</p>
+                        <button class="protected-btn" data-target="train-search.html">View Trains</button>
+                    </div>
+
+                    <div class="route-card">
+                        <div class="route-top">
+                            <h3>Kolkata → Varanasi</h3>
+                            <span class="route-badge">Express</span>
+                        </div>
+                        <p><i class="fa-solid fa-train"></i> Vande Bharat</p>
+                        <button class="protected-btn" data-target="train-search.html">View Trains</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose RailNova Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Why Choose RailNova?</h2>
+                    <p>Everything you need for a smooth and modern railway reservation experience.</p>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <h3>Instant Booking</h3>
+                        <p>Book tickets in just a few clicks with rapid seat verification and confirmation.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-location-crosshairs"></i></div>
+                        <h3>Live Train Tracking</h3>
+                        <p>Track your train in real time with accurate arrival, delay, and station stop updates.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
+                        <h3>Group Booking</h3>
+                        <p>Book up to 6 passengers with automatic contiguous seat and coach allocation.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3>Secure Payments</h3>
+                        <p>Simulated instant checkout, encrypted transactions, and auto-generated QR tickets.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted Stats Bar -->
+        <section class="trusted-section">
+            <div class="container">
+                <p class="trusted-heading">Trusted by <span>10 Million+</span> Travelers Across India</p>
+
+                <div class="trusted-box">
+                    <div class="trusted-item">
                         <h2>10M+</h2>
-                        <span>Users</span>
+                        <span>Registered Users</span>
                     </div>
-        
-                    <div>
-                        <h2>25K+</h2>
-                        <span>Daily Bookings</span>
+                    <div class="trusted-item">
+                        <h2>250K+</h2>
+                        <span>Monthly Bookings</span>
                     </div>
-        
-                    <div>
+                    <div class="trusted-item">
+                        <h2>1,500+</h2>
+                        <span>Active Trains</span>
+                    </div>
+                    <div class="trusted-item">
                         <h2>99.9%</h2>
-                        <span>Uptime</span>
+                        <span>Platform Uptime</span>
                     </div>
-        
                 </div>
-        
             </div>
-        
-            <div class="hero-right">
-        
-                <img src="images/train.png" alt="Train">
-        
-            </div>
-        
-        </section>
-        
-        </main>
-
-        <section class="search-wrapper">
-
-            <div class="search-card">
-        
-                <div class="field">
-        
-                    <label>📍 From</label>
-        
-                    <input
-                        type="text"
-                        placeholder="New Delhi"
-                        readonly
-                    >
-        
-                </div>
-        
-                <button class="swap-btn protected-btn">
-                    ⇄
-                </button>
-        
-                <div class="field">
-        
-                    <label>📍 To</label>
-        
-                    <input
-                        type="text"
-                        placeholder="Mumbai"
-                        readonly
-                    >
-        
-                </div>
-        
-                <div class="field">
-        
-                    <label>📅 Journey Date</label>
-        
-                    <input
-                        type="date"
-                        readonly
-                    >
-        
-                </div>
-        
-                <div class="field">
-        
-                    <label>💺 Class</label>
-        
-                    <select disabled>
-        
-                        <option>All Classes</option>
-        
-                        <option>Sleeper</option>
-        
-                        <option>3A</option>
-        
-                        <option>2A</option>
-        
-                        <option>1A</option>
-        
-                    </select>
-        
-                </div>
-        
-                <button class="search-btn protected-btn">
-        
-                    🔍 Search Trains
-        
-                </button>
-        
-            </div>
-        
         </section>
 
-        <section class="routes">
-
-            <div class="section-heading">
-        
-                <h2>Popular Routes</h2>
-        
-                <p>Most booked train routes this week</p>
-        
-            </div>
-        
-            <div class="route-grid">
-        
-                <div class="route-card">
-        
-                    <h3>Delhi → Mumbai</h3>
-        
-                    <p>Rajdhani Express</p>
-        
-                    <button class="protected-btn">
-                        View Trains
-                    </button>
-        
-                </div>
-        
-                <div class="route-card">
-        
-                    <h3>Bhopal → Indore</h3>
-        
-                    <p>Intercity Express</p>
-        
-                    <button class="protected-btn">
-                        View Trains
-                    </button>
-        
-                </div>
-        
-                <div class="route-card">
-        
-                    <h3>Bengaluru → Chennai</h3>
-        
-                    <p>Shatabdi Express</p>
-        
-                    <button class="protected-btn">
-                        View Trains
-                    </button>
-        
-                </div>
-        
-                <div class="route-card">
-        
-                    <h3>Kolkata → Patna</h3>
-        
-                    <p>Vande Bharat</p>
-        
-                    <button class="protected-btn">
-                        View Trains
-                    </button>
-        
-                </div>
-        
-            </div>
-        
-        </section>
-        <section class="features">
-
-            <div class="section-heading">
-        
-                <h2>Why Choose RailNova?</h2>
-        
-                <p>Everything you need for a seamless railway journey.</p>
-        
-            </div>
-        
-            <div class="feature-grid">
-        
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Instant Booking</h3>
-                    <p>Book tickets in just a few clicks with a fast and reliable experience.</p>
-                </div>
-        
-                <div class="feature-card">
-                    <div class="feature-icon">📍</div>
-                    <h3>Live Train Tracking</h3>
-                    <p>Track your train in real time with accurate arrival and departure updates.</p>
-                </div>
-        
-                <div class="feature-card">
-                    <div class="feature-icon">💺</div>
-                    <h3>Seat Availability</h3>
-                    <p>Check seat availability across all classes before booking.</p>
-                </div>
-        
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Secure Payments</h3>
-                    <p>Multiple payment options with enterprise-grade security.</p>
-                </div>
-        
-            </div>
-        
-        </section>
-        <section class="trusted">
-
-            <p>Trusted by <span>10 Million+</span> Travelers Across India</p>
-        
-            <div class="trusted-box">
-        
-                <div>
-                    <h2>10M+</h2>
-                    <span>Users</span>
-                </div>
-        
-                <div>
-                    <h2>250K+</h2>
-                    <span>Bookings</span>
-                </div>
-        
-                <div>
-                    <h2>500+</h2>
-                    <span>Stations</span>
-                </div>
-        
-                <div>
-                    <h2>99.9%</h2>
-                    <span>Uptime</span>
-                </div>
-        
-            </div>
-        
-        </section>
-
+        <!-- Mobile App Teaser Section -->
         <section class="app-section">
+            <div class="container app-container">
+                <div class="app-left">
+                    <span class="coming-tag">
+                        🚀 Coming Soon
+                    </span>
 
-            <div class="app-left">
-        
-                <span class="coming-tag">
-                    🚀 Coming Soon
-                </span>
-        
-                <h2>
-        
-                    RailNova Mobile App
-        
-                </h2>
-        
-                <p>
-        
-                    Soon you'll be able to book tickets, track live trains,
-                    check PNR status and manage your journeys directly from
-                    your Android and iPhone.
-        
-                </p>
-        
-                <div class="app-features">
-        
-                    <span>🎫 Instant Booking</span>
-        
-                    <span>📍 Live Tracking</span>
-        
-                    <span>🔔 Journey Alerts</span>
-        
-                    <span>💳 Secure Payments</span>
-        
+                    <h2>RailNova Mobile App</h2>
+
+                    <p>
+                        Soon you'll be able to book tickets, track live trains,
+                        check PNR status, and receive departure alerts directly from
+                        your Android and iPhone.
+                    </p>
+
+                    <div class="app-features">
+                        <span><i class="fa-solid fa-ticket"></i> Instant Booking</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Live Tracking</span>
+                        <span><i class="fa-solid fa-bell"></i> Journey Alerts</span>
+                        <span><i class="fa-solid fa-credit-card"></i> Secure Payments</span>
+                    </div>
+
+                    <button class="primary-btn protected-btn" data-target="login.html">
+                        Join the Waitlist
+                    </button>
                 </div>
-        
-                <button class="primary-btn protected-btn">
-        
-                    Join the Waitlist
-        
-                </button>
-        
+
+                <div class="app-right">
+                    <img src="images/mobile.png" alt="RailNova Mobile App Preview">
+                </div>
             </div>
-        
-            <div class="app-right">
-        
-                <img src="images/mobile.png" alt="RailNova Mobile App">
-        
-            </div>
-        
         </section>
 
-        <footer>
+    </main>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
             <h2>🚆 RailNova</h2>
-        
-            <p>Making railway travel smarter, faster and hassle-free.</p>
+            <p>Making railway travel smarter, faster, and hassle-free across India.</p>
 
             <p class="creator">
                 Designed & Developed by
@@ -421,56 +312,30 @@
                 </a>
                 | MANIT Bhopal
             </p>
-        
+
             <span>© 2026 RailNova. All Rights Reserved.</span>
-        
-        </footer>
-
-        <!-- Login Required Modal -->
-
-<div id="loginModal" class="modal">
-
-    <div class="modal-content">
-
-        <div class="lock-icon">🔒</div>
-
-        <h2>Login Required</h2>
-
-        <p>
-
-            Unlock the complete RailNova experience.
-            
-            Search trains, check live train status, track your PNR,
-            book tickets and manage all your journeys with one free account.
-            
-            </p>
-
-        <div class="modal-buttons">
-
-            <button id="loginBtn">
-
-                Login
-
-            </button>
-
-            <button id="signupBtn">
-
-                Sign Up
-
-            </button>
-
-            <button id="closeModal">
-
-                Maybe Later
-
-            </button>
-
         </div>
+    </footer>
 
+    <!-- Login Required Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="lock-icon">🔒</div>
+            <h2>Login Required</h2>
+            <p>
+                Unlock the complete RailNova experience. Search trains, check live status, track PNR, book tickets, and manage all your journeys with one free account.
+            </p>
+            <div class="modal-buttons">
+                <button id="loginBtn">Login</button>
+                <button id="signupBtn">Sign Up</button>
+                <button id="closeModal">Maybe Later</button>
+            </div>
+        </div>
     </div>
 
-</div>
+    <!-- Scripts -->
     <script src="script.js"></script>
     <script src="js/ai-chat.js"></script>
 </body>
+
 </html>
